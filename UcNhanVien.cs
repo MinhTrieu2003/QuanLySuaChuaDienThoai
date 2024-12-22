@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QLDVSC
 {
-    public partial class UcSystem : UserControl
+    public partial class UcNhanVien : UserControl
     {
-        public UcSystem()
+        public UcNhanVien()
         {
             InitializeComponent();
         }
