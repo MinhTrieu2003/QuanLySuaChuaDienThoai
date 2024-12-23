@@ -29,13 +29,33 @@ namespace QLDVSC
             // Thêm User Control vào panel chính
             panel1.Controls.Add(userControl);
         }
-        
 
-        
+
+
 
         private void toolStripbtnNhanVien_Click(object sender, EventArgs e)
         {
             LoadUserControl(new UcNhanVien());
+        }
+
+        private void toolStripbtnTaiKhoan_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new UcTaiKhoan());
+        }
+
+        private void dịchVụSửaChữaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new UcDichVu());
+        }
+
+        private void linhKiệnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new UcLinhKien());
+        }
+
+        private void lỗiThườngGặpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new UcLoiTG());
         }
     }
 }

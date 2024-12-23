@@ -28,8 +28,25 @@ namespace QLDVSC
             public string Email { get; set; }
             public string Address { get; set; }
         }
+        private KhachHang khInfor;
 
-        public KhachHang KHInfor { get; internal set; }
+        public KhachHang KHInfor {
+
+            get => khInfor;
+            set
+            {
+                khInfor = value;
+                // Hiển thị thông tin khách hàng lên form khi được gán giá trị
+                if (khInfor != null)
+                {
+                    txtCustomerName.Text = khInfor.CustomerName;
+                    txtPhoneNumber.Text = khInfor.PhoneNumber;
+                    txtEmail.Text = khInfor.Email;
+                    txtAddress.Text = khInfor.Address;
+                }
+            }
+
+        }
 
         private void InforKhachHang_Load(object sender, EventArgs e)
         {

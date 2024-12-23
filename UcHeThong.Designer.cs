@@ -76,20 +76,23 @@
             // dịchVụSửaChữaToolStripMenuItem
             // 
             dịchVụSửaChữaToolStripMenuItem.Name = "dịchVụSửaChữaToolStripMenuItem";
-            dịchVụSửaChữaToolStripMenuItem.Size = new Size(204, 26);
+            dịchVụSửaChữaToolStripMenuItem.Size = new Size(224, 26);
             dịchVụSửaChữaToolStripMenuItem.Text = "Dịch vụ sửa chữa";
+            dịchVụSửaChữaToolStripMenuItem.Click += dịchVụSửaChữaToolStripMenuItem_Click;
             // 
             // linhKiệnToolStripMenuItem
             // 
             linhKiệnToolStripMenuItem.Name = "linhKiệnToolStripMenuItem";
-            linhKiệnToolStripMenuItem.Size = new Size(204, 26);
+            linhKiệnToolStripMenuItem.Size = new Size(224, 26);
             linhKiệnToolStripMenuItem.Text = "Linh kiện";
+            linhKiệnToolStripMenuItem.Click += linhKiệnToolStripMenuItem_Click;
             // 
             // lỗiThườngGặpToolStripMenuItem
             // 
             lỗiThườngGặpToolStripMenuItem.Name = "lỗiThườngGặpToolStripMenuItem";
-            lỗiThườngGặpToolStripMenuItem.Size = new Size(204, 26);
+            lỗiThườngGặpToolStripMenuItem.Size = new Size(224, 26);
             lỗiThườngGặpToolStripMenuItem.Text = "Lỗi thường gặp";
+            lỗiThườngGặpToolStripMenuItem.Click += lỗiThườngGặpToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
@@ -127,6 +130,7 @@
             toolStripbtnTaiKhoan.Name = "toolStripbtnTaiKhoan";
             toolStripbtnTaiKhoan.Size = new Size(148, 25);
             toolStripbtnTaiKhoan.Text = "Tài khoản";
+            toolStripbtnTaiKhoan.Click += toolStripbtnTaiKhoan_Click;
             // 
             // toolStripSeparator5
             // 
@@ -149,7 +153,6 @@
             Controls.Add(toolStrip2);
             Name = "UcHeThong";
             Size = new Size(1106, 390);
-            
             toolStrip2.ResumeLayout(false);
             toolStrip2.PerformLayout();
             ResumeLayout(false);

@@ -11,20 +11,15 @@ using System.Windows.Forms;
 
 namespace QLDVSC
 {
-    public partial class UcNhanVien : UserControl
+    public partial class UcLinhKien : UserControl
     {
         string connectionString = "server=localhost;database=QuanLySuaChua1;uid=root;pwd=123456789;";
-        public UcNhanVien()
+        public UcLinhKien()
         {
             InitializeComponent();
         }
 
-        private void UcNhanVien_Load(object sender, EventArgs e)
-        {
-            LoadNhanVien();
-        }
-
-        private void LoadNhanVien()
+        private void LoadLinhKien()
         {
 
 
@@ -33,20 +28,25 @@ namespace QLDVSC
                 try
                 {
                     connection.Open();
-                    string query = "SELECT * FROM NhanVien";
+                    string query = "SELECT * FROM LinhKien";
                     MySqlCommand cmd = new MySqlCommand(query, connection);
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
 
-                    dgvNhanVien.DataSource = dataTable;
+                    dgvLinhKien.DataSource = dataTable;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Lỗi khi tải dữ liệu: {ex.Message}");
                 }
             }
+        }
+
+        private void UcLinhKien_Load(object sender, EventArgs e)
+        {
+            LoadLinhKien();
         }
     }
 }

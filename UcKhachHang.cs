@@ -113,7 +113,7 @@ namespace QLDVSC
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    // Xóa khách hàng khỏi database
+                    
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
                         try
@@ -128,7 +128,7 @@ namespace QLDVSC
 
                             MessageBox.Show("Xóa khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            // Tải lại danh sách sau khi xóa
+                            
                             LoadCustomers();
                         }
                         catch (Exception ex)
@@ -140,7 +140,7 @@ namespace QLDVSC
             }
             else
             {
-                // Hiển thị thông báo nếu không có dòng nào được chọn
+                
                 MessageBox.Show("Vui lòng chọn một khách hàng để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }

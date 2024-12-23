@@ -121,7 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripbtnSearch2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="toolStriptxtSearch6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAhl1JREFUeF7t
         vQd4FFX7/v99hfQeEnoNHSmCFFF6FSlSQgu9gzTpnRdQQJSmAgoIiIgigpUiTUR6kSJvKIYiBKnSO0ng
@@ -700,7 +700,7 @@
         QgghKc3//d//B1ADbXLpbcZ6AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="toolStripbtnSearch2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="toolStriptxtSearch6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAIXSSURBVHhe7Z0JvE3V+/9/33Lna77mIfMQUkoqMheFzJnH
@@ -1277,7 +1277,7 @@
         hBBCCCGEEEIIIYQQQgghhBBCpDb/93//DwHlU4DcCXDtAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnAddEmployee.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnAddLoi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAFO9JREFUeF7t
         3X2MVGe9B3CFfaOwxVC7LMK9f9DalgLFRbxoirSmV29iNJr40gvEgDTFytI3tBSolLaAFNpqe2v8oymQ
@@ -1372,7 +1372,7 @@
         AAAAAABnmXe96/8B6EZAO3y/9dwAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnEditEmployee.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnEditLoi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAA4bRJREFUeF7s
         /QmYFFW2943agwoO3X3e9z3vOe+93733O90qoD2dHrRmBgEnBERtFWQGUVTmQUBbEJlBgWKepyqKGUQU
@@ -2341,7 +2341,7 @@
         SgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="btnDeleteEployee.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnEditLLoi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAVRBJREFUeF7t
         nQeYFEX+v38Cm9iFReISJIkKCggIRhQ9FQEVJRnAgBjwvBNUFDHjoQgop3gEFQx4GA4QxURQQAVBQD2C
@@ -2710,19 +2710,10 @@
         AElFTkSuQmCC
 </value>
   </data>
-  <metadata name="ID_nhan_vien.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="ID_Loi.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Ho_ten.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Vai_tro.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Ten_dang_nhap.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Mat_khau.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Mo_ta_loi.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

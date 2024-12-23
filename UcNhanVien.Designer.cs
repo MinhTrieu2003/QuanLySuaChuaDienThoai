@@ -41,7 +41,7 @@
             dgvNhanVien = new DataGridView();
             ID_nhan_vien = new DataGridViewTextBoxColumn();
             Ho_ten = new DataGridViewTextBoxColumn();
-            Vai_tro = new DataGridViewComboBoxColumn();
+            Vai_tro = new DataGridViewTextBoxColumn();
             Ten_dang_nhap = new DataGridViewTextBoxColumn();
             Mat_khau = new DataGridViewTextBoxColumn();
             toolStrip1.SuspendLayout();
@@ -152,7 +152,6 @@
             Vai_tro.Name = "Vai_tro";
             Vai_tro.ReadOnly = true;
             Vai_tro.Resizable = DataGridViewTriState.True;
-            Vai_tro.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // Ten_dang_nhap
             // 
@@ -180,6 +179,7 @@
             Controls.Add(toolStrip1);
             Name = "UcNhanVien";
             Size = new Size(945, 473);
+            Load += UcNhanVien_Load;
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvNhanVien).EndInit();
@@ -201,7 +201,7 @@
         private DataGridView dgvNhanVien;
         private DataGridViewTextBoxColumn ID_nhan_vien;
         private DataGridViewTextBoxColumn Ho_ten;
-        private DataGridViewComboBoxColumn Vai_tro;
+        private DataGridViewTextBoxColumn Vai_tro;
         private DataGridViewTextBoxColumn Ten_dang_nhap;
         private DataGridViewTextBoxColumn Mat_khau;
     }
