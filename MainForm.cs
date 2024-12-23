@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,17 +21,17 @@ namespace QLDVSC
         private void MainForm_Load(object sender, EventArgs e)
         {
             // Nạp User Control Hệ thống vào Panel chính khi Form load
-            LoadUserControl(new UcHeThong());
+            LoadUserControl(new UcSystem());
         }
 
         private void hệThốngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new UcHeThong());
+            LoadUserControl(new UcSystem());
         }
 
         private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new UcKhachHang());
+            LoadUserControl(new UcCustomer());
         }
 
         // Hàm nạp User Control vào Panel chính
@@ -57,6 +57,14 @@ namespace QLDVSC
             LoadUserControl(new UcDonhang());
         }
 
-        
+        private void hoaDonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new UcHoaDon());
+        }
+
+        private void baoCaoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new UcBaoCao());
+        }
     }
 }
