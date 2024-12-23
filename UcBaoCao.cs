@@ -11,7 +11,7 @@ namespace QLDVSC
 {
     public partial class UcBaoCao : UserControl
     {
-        string connectionString = "server=localhost;database=QuanLySuaChua;uid=root;pwd=admin;";
+        string connectionString = "server=localhost;database=QuanLySuaChua1;uid=root;pwd=123456789;";
 
         public UcBaoCao()
         {

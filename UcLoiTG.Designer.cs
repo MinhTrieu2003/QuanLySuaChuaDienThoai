@@ -37,7 +37,7 @@
             toolStripSeparator2 = new ToolStripSeparator();
             btnEditLoi = new ToolStripLabel();
             toolStripSeparator3 = new ToolStripSeparator();
-            btnEditLLoi = new ToolStripLabel();
+            btndeleteLLoi = new ToolStripLabel();
             dgvLoiTG = new DataGridView();
             ID_Loi = new DataGridViewTextBoxColumn();
             Mo_ta_loi = new DataGridViewTextBoxColumn();
@@ -48,7 +48,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStriptxtSearch5, toolStriptxtSearch6, toolStripSeparator1, btnAddLoi, toolStripSeparator2, btnEditLoi, toolStripSeparator3, btnEditLLoi });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStriptxtSearch5, toolStriptxtSearch6, toolStripSeparator1, btnAddLoi, toolStripSeparator2, btnEditLoi, toolStripSeparator3, btndeleteLLoi });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(942, 27);
@@ -59,6 +59,7 @@
             // 
             toolStriptxtSearch5.Name = "toolStriptxtSearch5";
             toolStriptxtSearch5.Size = new Size(300, 27);
+            toolStriptxtSearch5.KeyDown += toolStriptxtSearch5_KeyDown;
             // 
             // toolStriptxtSearch6
             // 
@@ -69,6 +70,7 @@
             toolStriptxtSearch6.Name = "toolStriptxtSearch6";
             toolStriptxtSearch6.Size = new Size(29, 24);
             toolStriptxtSearch6.Text = "toolStripButton1";
+            toolStriptxtSearch6.Click += toolStriptxtSearch6_Click;
             // 
             // toolStripSeparator1
             // 
@@ -81,6 +83,7 @@
             btnAddLoi.Name = "btnAddLoi";
             btnAddLoi.Size = new Size(96, 24);
             btnAddLoi.Text = "Thêm mới";
+            btnAddLoi.Click += btnAddLoi_Click;
             // 
             // toolStripSeparator2
             // 
@@ -93,18 +96,20 @@
             btnEditLoi.Name = "btnEditLoi";
             btnEditLoi.Size = new Size(54, 24);
             btnEditLoi.Text = "Sửa";
+            btnEditLoi.Click += btnEditLoi_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
             toolStripSeparator3.Size = new Size(6, 27);
             // 
-            // btnEditLLoi
+            // btndeleteLLoi
             // 
-            btnEditLLoi.Image = (Image)resources.GetObject("btnEditLLoi.Image");
-            btnEditLLoi.Name = "btnEditLLoi";
-            btnEditLLoi.Size = new Size(55, 24);
-            btnEditLLoi.Text = "Xóa";
+            btndeleteLLoi.Image = (Image)resources.GetObject("btndeleteLLoi.Image");
+            btndeleteLLoi.Name = "btndeleteLLoi";
+            btndeleteLLoi.Size = new Size(55, 24);
+            btndeleteLLoi.Text = "Xóa";
+            btndeleteLLoi.Click += btndeleteLLoi_Click;
             // 
             // dgvLoiTG
             // 
@@ -115,6 +120,7 @@
             dgvLoiTG.Location = new Point(0, 27);
             dgvLoiTG.Name = "dgvLoiTG";
             dgvLoiTG.RowHeadersWidth = 51;
+            dgvLoiTG.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvLoiTG.Size = new Size(942, 477);
             dgvLoiTG.TabIndex = 5;
             // 
@@ -160,7 +166,7 @@
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripLabel btnEditLoi;
         private ToolStripSeparator toolStripSeparator3;
-        private ToolStripLabel btnEditLLoi;
+        private ToolStripLabel btndeleteLLoi;
         private DataGridView dgvLoiTG;
         private DataGridViewTextBoxColumn ID_Loi;
         private DataGridViewTextBoxColumn Mo_ta_loi;

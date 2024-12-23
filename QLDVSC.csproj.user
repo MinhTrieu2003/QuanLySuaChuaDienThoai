@@ -1,25 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="CustomerForm.cs">
+    <Compile Update="FormDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormLichSuSuaChua.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormLinhKien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormLoiTG.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormTiepNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormThongTinKH.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UcCustomer.cs">
+    <Compile Update="UcBaoCao.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UcDichVu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UcHoaDon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UcKhachHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UcDonhang.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UcSystem.cs">
+    <Compile Update="UcHeThong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UcLinhKien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UcLoiTG.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UcNhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UcTaiKhoan.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

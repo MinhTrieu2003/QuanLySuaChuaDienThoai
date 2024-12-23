@@ -18,11 +18,7 @@ namespace QLDVSC
             InitializeComponent();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            // Nạp User Control Hệ thống vào Panel chính khi Form load
-            LoadUserControl(new UcHeThong());
-        }
+        
 
         private void hệThốngToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -65,6 +61,11 @@ namespace QLDVSC
         private void baoCaoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadUserControl(new UcBaoCao());
+        }
+
+        private void MainForm_Load_1(object sender, EventArgs e)
+        {
+            LoadUserControl(new UcHeThong());
         }
     }
 }

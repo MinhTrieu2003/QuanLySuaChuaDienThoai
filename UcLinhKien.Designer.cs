@@ -37,7 +37,7 @@
             toolStripSeparator2 = new ToolStripSeparator();
             btnEditLinhKien = new ToolStripLabel();
             toolStripSeparator3 = new ToolStripSeparator();
-            btnEditLiLinhKien = new ToolStripLabel();
+            btndeleteLiLinhKien = new ToolStripLabel();
             dgvLinhKien = new DataGridView();
             ID_linh_kien = new DataGridViewTextBoxColumn();
             Ten_linh_kien = new DataGridViewTextBoxColumn();
@@ -52,7 +52,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStriptxtSearch4, toolStripbtnSearch4, toolStripSeparator1, btnAddLinhKien, toolStripSeparator2, btnEditLinhKien, toolStripSeparator3, btnEditLiLinhKien });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStriptxtSearch4, toolStripbtnSearch4, toolStripSeparator1, btnAddLinhKien, toolStripSeparator2, btnEditLinhKien, toolStripSeparator3, btndeleteLiLinhKien });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(935, 27);
@@ -63,6 +63,7 @@
             // 
             toolStriptxtSearch4.Name = "toolStriptxtSearch4";
             toolStriptxtSearch4.Size = new Size(300, 27);
+            toolStriptxtSearch4.KeyDown += toolStriptxtSearch4_KeyDown;
             // 
             // toolStripbtnSearch4
             // 
@@ -73,6 +74,7 @@
             toolStripbtnSearch4.Name = "toolStripbtnSearch4";
             toolStripbtnSearch4.Size = new Size(29, 24);
             toolStripbtnSearch4.Text = "toolStripButton1";
+            toolStripbtnSearch4.Click += toolStripbtnSearch4_Click;
             // 
             // toolStripSeparator1
             // 
@@ -85,6 +87,7 @@
             btnAddLinhKien.Name = "btnAddLinhKien";
             btnAddLinhKien.Size = new Size(96, 24);
             btnAddLinhKien.Text = "Thêm mới";
+            btnAddLinhKien.Click += btnAddLinhKien_Click;
             // 
             // toolStripSeparator2
             // 
@@ -97,18 +100,20 @@
             btnEditLinhKien.Name = "btnEditLinhKien";
             btnEditLinhKien.Size = new Size(54, 24);
             btnEditLinhKien.Text = "Sửa";
+            btnEditLinhKien.Click += btnEditLinhKien_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
             toolStripSeparator3.Size = new Size(6, 27);
             // 
-            // btnEditLiLinhKien
+            // btndeleteLiLinhKien
             // 
-            btnEditLiLinhKien.Image = (Image)resources.GetObject("btnEditLiLinhKien.Image");
-            btnEditLiLinhKien.Name = "btnEditLiLinhKien";
-            btnEditLiLinhKien.Size = new Size(55, 24);
-            btnEditLiLinhKien.Text = "Xóa";
+            btndeleteLiLinhKien.Image = (Image)resources.GetObject("btndeleteLiLinhKien.Image");
+            btndeleteLiLinhKien.Name = "btndeleteLiLinhKien";
+            btndeleteLiLinhKien.Size = new Size(55, 24);
+            btndeleteLiLinhKien.Text = "Xóa";
+            btndeleteLiLinhKien.Click += btndeleteLiLinhKien_Click;
             // 
             // dgvLinhKien
             // 
@@ -119,6 +124,7 @@
             dgvLinhKien.Location = new Point(0, 27);
             dgvLinhKien.Name = "dgvLinhKien";
             dgvLinhKien.RowHeadersWidth = 51;
+            dgvLinhKien.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvLinhKien.Size = new Size(935, 485);
             dgvLinhKien.TabIndex = 4;
             // 
@@ -196,7 +202,7 @@
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripLabel btnEditLinhKien;
         private ToolStripSeparator toolStripSeparator3;
-        private ToolStripLabel btnEditLiLinhKien;
+        private ToolStripLabel btndeleteLiLinhKien;
         private DataGridView dgvLinhKien;
         private DataGridViewTextBoxColumn ID_linh_kien;
         private DataGridViewTextBoxColumn Ten_linh_kien;

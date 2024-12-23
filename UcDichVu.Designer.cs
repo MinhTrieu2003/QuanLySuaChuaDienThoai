@@ -60,6 +60,7 @@
             // 
             toolStriptxtSearch3.Name = "toolStriptxtSearch3";
             toolStriptxtSearch3.Size = new Size(300, 27);
+            toolStriptxtSearch3.KeyDown += toolStriptxtSearch3_KeyDown;
             // 
             // toolStripbtnSearch3
             // 
@@ -70,6 +71,7 @@
             toolStripbtnSearch3.Name = "toolStripbtnSearch3";
             toolStripbtnSearch3.Size = new Size(29, 24);
             toolStripbtnSearch3.Text = "toolStripButton1";
+            toolStripbtnSearch3.Click += toolStripbtnSearch3_Click;
             // 
             // toolStripSeparator1
             // 
@@ -82,6 +84,7 @@
             btnAddDichVu.Name = "btnAddDichVu";
             btnAddDichVu.Size = new Size(96, 24);
             btnAddDichVu.Text = "Thêm mới";
+            btnAddDichVu.Click += btnAddDichVu_Click;
             // 
             // toolStripSeparator2
             // 
@@ -94,6 +97,7 @@
             btnEditDichVu.Name = "btnEditDichVu";
             btnEditDichVu.Size = new Size(54, 24);
             btnEditDichVu.Text = "Sửa";
+            btnEditDichVu.Click += btnEditDichVu_Click;
             // 
             // toolStripSeparator3
             // 
@@ -106,6 +110,7 @@
             btnDeleteDichVu.Name = "btnDeleteDichVu";
             btnDeleteDichVu.Size = new Size(55, 24);
             btnDeleteDichVu.Text = "Xóa";
+            btnDeleteDichVu.Click += btnDeleteDichVu_Click;
             // 
             // dgvDichVu
             // 
@@ -116,6 +121,7 @@
             dgvDichVu.Location = new Point(0, 27);
             dgvDichVu.Name = "dgvDichVu";
             dgvDichVu.RowHeadersWidth = 51;
+            dgvDichVu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDichVu.Size = new Size(931, 463);
             dgvDichVu.TabIndex = 3;
             // 
@@ -126,8 +132,7 @@
             ID_dich_vu.HeaderText = "Mã dịch vụ";
             ID_dich_vu.MinimumWidth = 6;
             ID_dich_vu.Name = "ID_dich_vu";
-            ID_dich_vu.Resizable = DataGridViewTriState.False;
-            ID_dich_vu.Width = 125;
+            ID_dich_vu.Width = 293;
             // 
             // Ten_dich_vu
             // 
@@ -136,7 +141,7 @@
             Ten_dich_vu.HeaderText = "Tên dịch vụ";
             Ten_dich_vu.MinimumWidth = 6;
             Ten_dich_vu.Name = "Ten_dich_vu";
-            Ten_dich_vu.Width = 377;
+            Ten_dich_vu.Width = 292;
             // 
             // Gia
             // 
@@ -145,7 +150,7 @@
             Gia.HeaderText = "Giá";
             Gia.MinimumWidth = 6;
             Gia.Name = "Gia";
-            Gia.Width = 377;
+            Gia.Width = 293;
             // 
             // UcDichVu
             // 
