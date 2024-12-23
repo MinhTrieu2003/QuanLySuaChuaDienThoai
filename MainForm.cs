@@ -21,17 +21,17 @@ namespace QLDVSC
         private void MainForm_Load(object sender, EventArgs e)
         {
             // Nạp User Control Hệ thống vào Panel chính khi Form load
-            LoadUserControl(new UcSystem());
+            LoadUserControl(new UcHeThong());
         }
 
         private void hệThốngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new UcSystem());
+            LoadUserControl(new UcHeThong());
         }
 
         private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadUserControl(new UcCustomer());
+            LoadUserControl(new UcKhachHang());
         }
 
         // Hàm nạp User Control vào Panel chính
