@@ -1,4 +1,4 @@
-﻿namespace QLDVSC
+namespace QLDVSC
 {
     partial class MainForm
     {
@@ -33,7 +33,8 @@
             kháchHàngToolStripMenuItem = new ToolStripMenuItem();
             thiếtBịToolStripMenuItem = new ToolStripMenuItem();
             đơnHàngToolStripMenuItem = new ToolStripMenuItem();
-            hóaToolStripMenuItem = new ToolStripMenuItem();
+            hoaDonToolStripMenuItem = new ToolStripMenuItem();
+            baoCaoToolStripMenuItem = new ToolStripMenuItem();
             mainPanel = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -42,10 +43,10 @@
             // 
             menuStrip1.BackColor = SystemColors.ControlLight;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { hệThốngToolStripMenuItem, kháchHàngToolStripMenuItem, thiếtBịToolStripMenuItem, đơnHàngToolStripMenuItem, hóaToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { hệThốngToolStripMenuItem, kháchHàngToolStripMenuItem, thiếtBịToolStripMenuItem, đơnHàngToolStripMenuItem, hoaDonToolStripMenuItem, baoCaoToolStripMenuItem }); // Include baoCaoToolStripMenuItem here
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1238, 28);
+            menuStrip1.Size = new Size(1238, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -77,23 +78,31 @@
             đơnHàngToolStripMenuItem.Text = "ĐƠN HÀNG";
             đơnHàngToolStripMenuItem.Click += đơnHàngToolStripMenuItem_Click;
             // 
-            // hóaToolStripMenuItem
+            // hoaDonToolStripMenuItem
             // 
-            hóaToolStripMenuItem.Name = "hóaToolStripMenuItem";
-            hóaToolStripMenuItem.Size = new Size(92, 24);
-            hóaToolStripMenuItem.Text = "HÓA ĐƠN";
+            hoaDonToolStripMenuItem.Name = "hoaDonToolStripMenuItem";
+            hoaDonToolStripMenuItem.Size = new Size(92, 24);
+            hoaDonToolStripMenuItem.Text = "HÓA ĐƠN";
+            hoaDonToolStripMenuItem.Click += hoaDonToolStripMenuItem_Click;
+            // 
+            // baoCaoToolStripMenuItem
+            // 
+            baoCaoToolStripMenuItem.Name = "baoCaoToolStripMenuItem";
+            baoCaoToolStripMenuItem.Size = new Size(92, 24);
+            baoCaoToolStripMenuItem.Text = "BÁO CÁO";
+            baoCaoToolStripMenuItem.Click += baoCaoToolStripMenuItem_Click;
             // 
             // mainPanel
             // 
             mainPanel.Dock = DockStyle.Fill;
-            mainPanel.Location = new Point(0, 28);
+            mainPanel.Location = new Point(0, 24);
             mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(1238, 484);
+            mainPanel.Size = new Size(1238, 488);
             mainPanel.TabIndex = 4;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1238, 512);
             Controls.Add(mainPanel);
@@ -103,7 +112,6 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trang chủ";
-            Load += MainForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -117,7 +125,8 @@
         private ToolStripMenuItem kháchHàngToolStripMenuItem;
         private ToolStripMenuItem thiếtBịToolStripMenuItem;
         private ToolStripMenuItem đơnHàngToolStripMenuItem;
-        private ToolStripMenuItem hóaToolStripMenuItem;
+        private ToolStripMenuItem hoaDonToolStripMenuItem;
+        private ToolStripMenuItem baoCaoToolStripMenuItem;
         private Panel mainPanel;
     }
 }
