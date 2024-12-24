@@ -35,10 +35,10 @@
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtPasswword = new TextBox();
+            txtUssername = new TextBox();
+            txtVai_tro = new TextBox();
+            txtHo_ten = new TextBox();
             btnChangePass = new Button();
             openFileDialog1 = new OpenFileDialog();
             btnSelectPic = new Button();
@@ -70,10 +70,10 @@
             groupBox1.Controls.Add(pictureBox4);
             groupBox1.Controls.Add(pictureBox3);
             groupBox1.Controls.Add(pictureBox2);
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtPasswword);
+            groupBox1.Controls.Add(txtUssername);
+            groupBox1.Controls.Add(txtVai_tro);
+            groupBox1.Controls.Add(txtHo_ten);
             groupBox1.FlatStyle = FlatStyle.Popup;
             groupBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(280, 31);
@@ -123,37 +123,37 @@
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
             // 
-            // textBox4
+            // txtPasswword
             // 
-            textBox4.Location = new Point(91, 264);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(376, 34);
-            textBox4.TabIndex = 3;
+            txtPasswword.Location = new Point(91, 264);
+            txtPasswword.Multiline = true;
+            txtPasswword.Name = "txtPasswword";
+            txtPasswword.Size = new Size(376, 34);
+            txtPasswword.TabIndex = 3;
             // 
-            // textBox3
+            // txtUssername
             // 
-            textBox3.Location = new Point(91, 189);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(376, 34);
-            textBox3.TabIndex = 2;
+            txtUssername.Location = new Point(91, 189);
+            txtUssername.Multiline = true;
+            txtUssername.Name = "txtUssername";
+            txtUssername.Size = new Size(376, 34);
+            txtUssername.TabIndex = 2;
             // 
-            // textBox2
+            // txtVai_tro
             // 
-            textBox2.Location = new Point(91, 124);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(376, 34);
-            textBox2.TabIndex = 1;
+            txtVai_tro.Location = new Point(91, 124);
+            txtVai_tro.Multiline = true;
+            txtVai_tro.Name = "txtVai_tro";
+            txtVai_tro.Size = new Size(376, 34);
+            txtVai_tro.TabIndex = 1;
             // 
-            // textBox1
+            // txtHo_ten
             // 
-            textBox1.Location = new Point(91, 54);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(376, 34);
-            textBox1.TabIndex = 0;
+            txtHo_ten.Location = new Point(91, 54);
+            txtHo_ten.Multiline = true;
+            txtHo_ten.Name = "txtHo_ten";
+            txtHo_ten.Size = new Size(376, 34);
+            txtHo_ten.TabIndex = 0;
             // 
             // btnChangePass
             // 
@@ -166,6 +166,7 @@
             btnChangePass.TabIndex = 2;
             btnChangePass.Text = "Cập nhật mật khẩu";
             btnChangePass.UseVisualStyleBackColor = false;
+            btnChangePass.Click += btnChangePass_Click;
             // 
             // openFileDialog1
             // 
@@ -196,6 +197,7 @@
             Controls.Add(pictureBox1);
             Name = "UcTaiKhoan";
             Size = new Size(892, 508);
+            Load += UcTaiKhoan_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -211,10 +213,10 @@
         private PictureBox pictureBox1;
         private GroupBox groupBox1;
         private Button btnChangePass;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtPasswword;
+        private TextBox txtUssername;
+        private TextBox txtVai_tro;
+        private TextBox txtHo_ten;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox5;

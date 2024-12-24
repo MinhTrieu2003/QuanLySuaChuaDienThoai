@@ -151,19 +151,41 @@ namespace QLDVSC
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT ID_loi, Mo_ta_loi 
-                             FROM danhmucloi 
-                             WHERE ID_loi LIKE @Keyword 
-                                OR Mo_ta_loi LIKE @Keyword ";
+
+
+                    string query;
+
+                    if (int.TryParse(keyword, out int LoiID))
+                    {
+                        query = @"SELECT ID_loi, Mo_ta_loi
+                          FROM danhmucloi 
+                          WHERE ID_loi = @LoiID";
+                    }
+                    else
+                    {
+                        query = @"SELECT ID_loi,  Mo_ta_loi
+                          FROM danhmucloi 
+                          WHERE Mo_ta_loi LIKE @Keyword 
+                             ";
+                    }
 
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Keyword", "%" + keyword + "%");
+                        // Thêm tham số phù hợp
+                        if (int.TryParse(keyword, out LoiID))
+                        {
+                            cmd.Parameters.AddWithValue("@LoiID", LoiID);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@Keyword", "%" + keyword + "%");
+                        }
 
                         MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
 
+                        // Gán kết quả tìm kiếm vào DataGridView
                         dgvLoiTG.DataSource = dataTable;
 
                         // Hiển thị thông báo nếu không tìm thấy kết quả
@@ -175,7 +197,7 @@ namespace QLDVSC
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Lỗi khi tìm kiếm Lỗi thường gặp: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Lỗi khi tìm kiếm lỗi thường gặp: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

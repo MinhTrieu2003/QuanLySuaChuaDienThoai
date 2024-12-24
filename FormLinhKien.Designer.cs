@@ -156,6 +156,7 @@
             Controls.Add(txtTenLinhKien);
             Controls.Add(ttnSave4);
             Name = "FormLinhKien";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Thông tin linh kiện";
             Load += FormLinhKien_Load;
             ResumeLayout(false);

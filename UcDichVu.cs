@@ -153,21 +153,42 @@ namespace QLDVSC
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT ID_dich_vu, Ten_dich_vu, Gia 
-                             FROM DichVu 
-                             WHERE ID_dich_vu LIKE @Keyword 
-                                OR Ten_dich_vu LIKE @Keyword
-                                OR Gia LIKE @Keyword";
-                                
+
+
+                    string query;
+
+                    if (int.TryParse(keyword, out int dichvuID))
+                    {
+                        query = @"SELECT ID_dich_vu, Ten_dich_vu, Gia 
+                          FROM DichVu 
+                          WHERE ID_dich_vu = @dichvuID";
+                    }
+                    else
+                    {
+                        query = @"SELECT ID_dich_vu, Ten_dich_vu, Gia 
+                          FROM DichVu 
+                          WHERE Ten_dich_vu LIKE @Keyword 
+                             OR Gia LIKE @Keyword ";
+                             
+                    }
 
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Keyword", "%" + keyword + "%");
+                        // Thêm tham số phù hợp
+                        if (int.TryParse(keyword, out dichvuID))
+                        {
+                            cmd.Parameters.AddWithValue("@dichvuID", dichvuID);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@Keyword", "%" + keyword + "%");
+                        }
 
                         MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
 
+                        // Gán kết quả tìm kiếm vào DataGridView
                         dgvDichVu.DataSource = dataTable;
 
                         // Hiển thị thông báo nếu không tìm thấy kết quả

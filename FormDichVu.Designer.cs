@@ -93,6 +93,7 @@
             Controls.Add(label1);
             Controls.Add(btbSave3);
             Name = "FormDichVu";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Thông tin dịch vụ";
             Load += FormDichVu_Load;
             ResumeLayout(false);

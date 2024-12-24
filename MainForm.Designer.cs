@@ -111,7 +111,7 @@ namespace QLDVSC
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Trang chủ";
+            Text = "Dịch vụ quản lý sửa chữa";
             Load += MainForm_Load_1;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

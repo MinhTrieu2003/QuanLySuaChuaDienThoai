@@ -3,6 +3,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
+using static QLDVSC.FormNhanVien;
 using static QLDVSC.FormThongTinKH;
 
 namespace QLDVSC
@@ -152,16 +153,40 @@ namespace QLDVSC
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT ID_khach_hang, Ho_ten, So_dien_thoai, Email, Dia_chi 
-                             FROM KhachHang 
-                             WHERE Ho_ten LIKE @Keyword 
-                                OR So_dien_thoai LIKE @Keyword 
-                                OR Email LIKE @Keyword 
-                                OR Dia_chi LIKE @Keyword";
+                    string query;
+
+                    // Kiểm tra nếu từ khóa là số
+                    if (long.TryParse(keyword, out _))
+                    {
+                        query = @"
+                SELECT ID_khach_hang, Ho_ten, So_dien_thoai, Email, Dia_chi 
+                FROM KhachHang 
+                WHERE ID_khach_hang = @ExactId
+                   OR So_dien_thoai = @ExactPhone";
+                    }
+                    else
+                    {
+                        query = @"
+                SELECT ID_khach_hang, Ho_ten, So_dien_thoai, Email, Dia_chi 
+                FROM KhachHang 
+                WHERE LOWER(Ho_ten) LIKE @Keyword
+                   OR LOWER(Email) LIKE @Keyword
+                   OR LOWER(Dia_chi) LIKE @Keyword";
+                    }
 
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Keyword", "%" + keyword + "%");
+                        // Nếu từ khóa là số
+                        if (long.TryParse(keyword, out _))
+                        {
+                            cmd.Parameters.AddWithValue("@ExactId", keyword.Trim());
+                            cmd.Parameters.AddWithValue("@ExactPhone", keyword.Trim());
+                        }
+                        else
+                        {
+                            // Nếu từ khóa không phải là số
+                            cmd.Parameters.AddWithValue("@Keyword", "%" + keyword.Trim().ToLower() + "%");
+                        }
 
                         MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                         DataTable dataTable = new DataTable();
@@ -169,7 +194,6 @@ namespace QLDVSC
 
                         dgvKhachHang.DataSource = dataTable;
 
-                        // Hiển thị thông báo nếu không tìm thấy kết quả
                         if (dataTable.Rows.Count == 0)
                         {
                             MessageBox.Show("Không tìm thấy kết quả nào phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -182,6 +206,9 @@ namespace QLDVSC
                 }
             }
         }
+
+
+
         private void toolStripTxtSearch1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

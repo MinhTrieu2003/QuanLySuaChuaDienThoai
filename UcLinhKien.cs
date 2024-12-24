@@ -153,23 +153,43 @@ namespace QLDVSC
                 try
                 {
                     connection.Open();
-                    string query = @"SELECT ID_linh_kien, Ten_linh_kien, Loai_linh_kien, Gia_nhap, Gia_ban, So_luong_ton_kho 
-                             FROM Linhkien 
-                             WHERE Ten_linh_kien LIKE @Keyword 
-                                OR ID_linh_kien LIKE @Keyword
-                                OR Loai_linh_kien LIKE @Keyword 
-                                OR Gia_nhap LIKE @Keyword 
-                                OR Gia_ban LIKE @Keyword
-                                OR So_luong_ton_kho LIKE @Keyword ";
+
+
+                    string query;
+
+                    if (int.TryParse(keyword, out int LinhKienID))
+                    {
+                        query = @"SELECT ID_linh_kien, Ten_linh_kien, Loai_linh_kien, Gia_nhap, Gia_ban, So_luong_ton_kho 
+                          FROM LinhKien 
+                          WHERE ID_linh_kien = @LinhKienID";
+                    }
+                    else
+                    {
+                        query = @"SELECT ID_linh_kien, Ten_linh_kien, Loai_linh_kien, Gia_nhap, Gia_ban, So_luong_ton_kho 
+                          FROM LinhKien 
+                          WHERE Ten_linh_kien LIKE @Keyword 
+                             OR Loai_linh_kien LIKE @Keyword 
+                             OR Gia_nhap LIKE @Keyword 
+                             OR Gia_ban LIKE @Keyword";
+                    }
 
                     using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.AddWithValue("@Keyword", "%" + keyword + "%");
+                        // Thêm tham số phù hợp
+                        if (int.TryParse(keyword, out LinhKienID))
+                        {
+                            cmd.Parameters.AddWithValue("@LinhKienID", LinhKienID);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@Keyword", "%" + keyword + "%");
+                        }
 
                         MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
 
+                        // Gán kết quả tìm kiếm vào DataGridView
                         dgvLinhKien.DataSource = dataTable;
 
                         // Hiển thị thông báo nếu không tìm thấy kết quả
@@ -181,7 +201,7 @@ namespace QLDVSC
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Lỗi khi tìm kiếm LinhKien: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Lỗi khi tìm kiếm linh kiện: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

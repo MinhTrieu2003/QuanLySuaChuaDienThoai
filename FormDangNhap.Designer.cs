@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDangNhap));
             txtUsername = new TextBox();
             txtPassword = new TextBox();
-            checkBox1 = new CheckBox();
+            chkRememberMe = new CheckBox();
             btn_Login = new Button();
             label1 = new Label();
             label2 = new Label();
@@ -56,15 +56,15 @@
             txtPassword.Size = new Size(248, 27);
             txtPassword.TabIndex = 1;
             // 
-            // checkBox1
+            // chkRememberMe
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(448, 279);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(147, 24);
-            checkBox1.TabIndex = 2;
-            checkBox1.Text = "Ghi nhớ mật khẩu";
-            checkBox1.UseVisualStyleBackColor = true;
+            chkRememberMe.AutoSize = true;
+            chkRememberMe.Location = new Point(448, 279);
+            chkRememberMe.Name = "chkRememberMe";
+            chkRememberMe.Size = new Size(147, 24);
+            chkRememberMe.TabIndex = 2;
+            chkRememberMe.Text = "Ghi nhớ mật khẩu";
+            chkRememberMe.UseVisualStyleBackColor = true;
             // 
             // btn_Login
             // 
@@ -142,12 +142,14 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btn_Login);
-            Controls.Add(checkBox1);
+            Controls.Add(chkRememberMe);
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
             DoubleBuffered = true;
             Name = "FormDangNhap";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";
+            Load += FormDangNhap_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -157,7 +159,7 @@
 
         private TextBox txtUsername;
         private TextBox txtPassword;
-        private CheckBox checkBox1;
+        private CheckBox chkRememberMe;
         private Button btn_Login;
         private Label label1;
         private Label label2;

@@ -73,6 +73,7 @@
             Controls.Add(txtLoiTG);
             Controls.Add(btnSave6);
             Name = "FormLoiTG";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Lỗi thường gặp";
             Load += FormLoiTG_Load;
             ResumeLayout(false);

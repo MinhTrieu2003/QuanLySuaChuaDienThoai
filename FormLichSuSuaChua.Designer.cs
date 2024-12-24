@@ -106,6 +106,7 @@ namespace QLDVSC
             ClientSize = new Size(1027, 299);
             Controls.Add(dgvLichSuSuaChua);
             Name = "FormLichSuSuaChua";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Lịch sử sửa chữa";
             Load += FormLichSuSuaChua_Load_1;
             ((System.ComponentModel.ISupportInitialize)dgvLichSuSuaChua).EndInit();

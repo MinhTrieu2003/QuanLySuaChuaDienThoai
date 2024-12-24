@@ -62,6 +62,7 @@
             // 
             toolStripTxtSearch2.Name = "toolStripTxtSearch2";
             toolStripTxtSearch2.Size = new Size(300, 27);
+            toolStripTxtSearch2.KeyDown += toolStripTxtSearch2_KeyDown;
             // 
             // toolStripbtnSearch2
             // 
@@ -72,6 +73,7 @@
             toolStripbtnSearch2.Name = "toolStripbtnSearch2";
             toolStripbtnSearch2.Size = new Size(29, 24);
             toolStripbtnSearch2.Text = "toolStripButton1";
+            toolStripbtnSearch2.Click += toolStripbtnSearch2_Click;
             // 
             // toolStripSeparator1
             // 
@@ -84,6 +86,7 @@
             btnAddEmployee.Name = "btnAddEmployee";
             btnAddEmployee.Size = new Size(96, 24);
             btnAddEmployee.Text = "Thêm mới";
+            btnAddEmployee.Click += btnAddEmployee_Click;
             // 
             // toolStripSeparator2
             // 
@@ -96,6 +99,7 @@
             btnEditEmployee.Name = "btnEditEmployee";
             btnEditEmployee.Size = new Size(54, 24);
             btnEditEmployee.Text = "Sửa";
+            btnEditEmployee.Click += btnEditEmployee_Click;
             // 
             // toolStripSeparator3
             // 
@@ -108,6 +112,7 @@
             btnDeleteEployee.Name = "btnDeleteEployee";
             btnDeleteEployee.Size = new Size(55, 24);
             btnDeleteEployee.Text = "Xóa";
+            btnDeleteEployee.Click += btnDeleteEployee_Click;
             // 
             // dgvNhanVien
             // 
