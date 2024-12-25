@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,9 +21,60 @@ namespace QLDVSC
             InitializeComponent();
         }
 
+        private Image GetImageFromResources(byte[] imageBytes)
+        {
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
+
         private void UcHoaDon_Load(object sender, EventArgs e)
         {
             LoadDataGrid();
+        }
+
+
+        // Nút xóa hóa đơn
+        private void btnXoaHoaDon_Click(object sender, EventArgs e)
+        {
+            string maHoaDon = txtMaHoaDon.Text.Trim();
+
+            if (string.IsNullOrEmpty(maHoaDon))
+            {
+                MessageBox.Show("Vui lòng nhập mã hóa đơn cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string query = "DELETE FROM hoadon WHERE ID_hoa_don = @MaHoaDon";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
+
+                        int result = command.ExecuteNonQuery();
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Xóa hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadDataGrid(); // Tải lại dữ liệu
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không tìm thấy hóa đơn với mã đã nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi xóa hóa đơn: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnInHoaDon_Click(object sender, EventArgs e)
