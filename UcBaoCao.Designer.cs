@@ -8,6 +8,7 @@ namespace QLDVSC
         private System.Windows.Forms.TabPage tabPage2;
         private LiveCharts.WinForms.PieChart pieChart1;
         private LiveCharts.WinForms.CartesianChart cartesianChart1;
+        private System.Windows.Forms.ComboBox comboBoxRevenueFilter;
 
         protected override void Dispose(bool disposing)
         {
@@ -25,6 +26,7 @@ namespace QLDVSC
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
+            this.comboBoxRevenueFilter = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -54,6 +56,7 @@ namespace QLDVSC
             // 
             // tabPage2 (Báo cáo doanh thu)
             // 
+            this.tabPage2.Controls.Add(this.comboBoxRevenueFilter);
             this.tabPage2.Controls.Add(this.cartesianChart1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
@@ -74,12 +77,27 @@ namespace QLDVSC
             // 
             // cartesianChart1
             // 
-            this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cartesianChart1.Location = new System.Drawing.Point(3, 3);
+            this.cartesianChart1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cartesianChart1.Location = new System.Drawing.Point(3, 43);
             this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(786, 415);
-            this.cartesianChart1.TabIndex = 0;
+            this.cartesianChart1.Size = new System.Drawing.Size(786, 375);
+            this.cartesianChart1.TabIndex = 1;
             this.cartesianChart1.Text = "cartesianChart1";
+            // 
+            // comboBoxRevenueFilter
+            // 
+            this.comboBoxRevenueFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRevenueFilter.FormattingEnabled = true;
+            this.comboBoxRevenueFilter.Items.AddRange(new object[] {
+                "Theo Tháng",
+                "Theo Quý"
+            });
+            this.comboBoxRevenueFilter.Location = new System.Drawing.Point(10, 10);
+            this.comboBoxRevenueFilter.Name = "comboBoxRevenueFilter";
+            this.comboBoxRevenueFilter.Size = new System.Drawing.Size(200, 25);
+            this.comboBoxRevenueFilter.TabIndex = 0;
+            this.comboBoxRevenueFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxRevenueFilter_SelectedIndexChanged);
+            this.comboBoxRevenueFilter.SelectedIndex = 0; // Default to "By Month"
             // 
             // UcBaoCao
             // 
