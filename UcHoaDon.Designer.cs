@@ -7,7 +7,6 @@ namespace QLDVSC
         private System.Windows.Forms.TextBox txtMaHoaDon;
         private System.Windows.Forms.Button btnInHoaDon;
         private System.Windows.Forms.Button btnXoaHoaDon;
-        private System.Windows.Forms.Button btnThemHoaDon;
 
         protected override void Dispose(bool disposing)
         {
@@ -20,72 +19,72 @@ namespace QLDVSC
 
         private void InitializeComponent()
         {
-            this.btnXoaHoaDon = new System.Windows.Forms.Button();
-            this.btnThemHoaDon = new System.Windows.Forms.Button();
-
+            btnXoaHoaDon = new Button();
+            dataGridView1 = new DataGridView();
+            txtMaHoaDon = new TextBox();
+            btnInHoaDon = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
             // 
             // btnXoaHoaDon
             // 
-            this.btnXoaHoaDon.Location = new System.Drawing.Point(320, 458);
-            this.btnXoaHoaDon.Name = "btnXoaHoaDon";
-            this.btnXoaHoaDon.Size = new System.Drawing.Size(100, 23);
-            this.btnXoaHoaDon.TabIndex = 3;
-            this.btnXoaHoaDon.Text = "Xoá Hóa Đơn";
-            this.btnXoaHoaDon.UseVisualStyleBackColor = true;
-            this.btnXoaHoaDon.Click += new System.EventHandler(this.btnXoaHoaDon_Click);
-
-            // 
-            // UcHoaDon
-            // 
-            this.Controls.Add(this.btnXoaHoaDon);
-            this.Controls.Add(this.btnThemHoaDon);
-
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtMaHoaDon = new System.Windows.Forms.TextBox();
-            this.btnInHoaDon = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.SuspendLayout();
+            btnXoaHoaDon.Location = new Point(418, 5);
+            btnXoaHoaDon.Margin = new Padding(4, 5, 4, 5);
+            btnXoaHoaDon.Name = "btnXoaHoaDon";
+            btnXoaHoaDon.Size = new Size(133, 35);
+            btnXoaHoaDon.TabIndex = 3;
+            btnXoaHoaDon.Text = "Xoá Hóa Đơn";
+            btnXoaHoaDon.UseVisualStyleBackColor = true;
+            btnXoaHoaDon.Click += btnXoaHoaDon_Click;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(794, 444);
-            this.dataGridView1.TabIndex = 0;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Dock = DockStyle.Bottom;
+            dataGridView1.Location = new Point(0, 97);
+            dataGridView1.Margin = new Padding(4, 5, 4, 5);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(1103, 430);
+            dataGridView1.TabIndex = 0;
             // 
             // txtMaHoaDon
             // 
-            this.txtMaHoaDon.Location = new System.Drawing.Point(3, 460);
-            this.txtMaHoaDon.Name = "txtMaHoaDon";
-            this.txtMaHoaDon.Size = new System.Drawing.Size(200, 20);
-            this.txtMaHoaDon.TabIndex = 1;
-            this.txtMaHoaDon.PlaceholderText = "Nhập mã hóa đơn...";
+            txtMaHoaDon.Location = new Point(4, 5);
+            txtMaHoaDon.Margin = new Padding(4, 5, 4, 5);
+            txtMaHoaDon.Multiline = true;
+            txtMaHoaDon.Name = "txtMaHoaDon";
+            txtMaHoaDon.PlaceholderText = "Nhập mã hóa đơn...";
+            txtMaHoaDon.Size = new Size(265, 35);
+            txtMaHoaDon.TabIndex = 1;
             // 
             // btnInHoaDon
             // 
-            this.btnInHoaDon.Location = new System.Drawing.Point(210, 458);
-            this.btnInHoaDon.Name = "btnInHoaDon";
-            this.btnInHoaDon.Size = new System.Drawing.Size(100, 23);
-            this.btnInHoaDon.TabIndex = 2;
-            this.btnInHoaDon.Text = "In Hóa Đơn";
-            this.btnInHoaDon.UseVisualStyleBackColor = true;
-            this.btnInHoaDon.Click += new System.EventHandler(this.btnInHoaDon_Click);
+            btnInHoaDon.Location = new Point(277, 5);
+            btnInHoaDon.Margin = new Padding(4, 5, 4, 5);
+            btnInHoaDon.Name = "btnInHoaDon";
+            btnInHoaDon.Size = new Size(133, 35);
+            btnInHoaDon.TabIndex = 2;
+            btnInHoaDon.Text = "In Hóa Đơn";
+            btnInHoaDon.UseVisualStyleBackColor = true;
+            btnInHoaDon.Click += btnInHoaDon_Click;
             // 
             // UcHoaDon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1); 
-            this.Controls.Add(this.txtMaHoaDon);   
-            this.Controls.Add(this.btnInHoaDon);  
-            this.Name = "UcHoaDon";
-            this.Size = new System.Drawing.Size(800, 500); 
-            this.Load += new System.EventHandler(this.UcHoaDon_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnXoaHoaDon);
+            Controls.Add(dataGridView1);
+            Controls.Add(txtMaHoaDon);
+            Controls.Add(btnInHoaDon);
+            Margin = new Padding(4, 5, 4, 5);
+            Name = "UcHoaDon";
+            Size = new Size(1103, 527);
+            Load += UcHoaDon_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
-
     }
 }
