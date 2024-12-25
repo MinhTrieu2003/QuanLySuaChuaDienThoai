@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -9,7 +10,7 @@ namespace QLDVSC
 {
     public partial class UcBaoCao : UserControl
     {
-        string connectionString = "server=localhost;database=QuanLySuaChua1;uid=root;pwd=123456789;";
+        private readonly string connectionString = "server=localhost;database=QuanLySuaChua;uid=root;pwd=admin;";
 
         public UcBaoCao()
         {
@@ -61,9 +62,86 @@ namespace QLDVSC
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải dữ liệu biểu đồ Pie Chart: " + ex.Message);
+                MessageBox.Show("Lỗi khi tải dữ liệu biểu đồ Pie Chart: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void comboBoxRevenueFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedFilter = comboBoxRevenueFilter.SelectedItem.ToString();
+
+            if (selectedFilter == "By Quarter")
+            {
+                LoadRevenueByQuarterChart(); // Tải biểu đồ doanh thu theo quý
+            }
+            else if (selectedFilter == "By Month")
+            {
+                LoadRevenueChart(); // Tải biểu đồ doanh thu theo tháng
+            }
+            else
+            {
+                MessageBox.Show("Invalid filter selected!");
+            }
+        }
+
+        // Thêm hàm mới để tải biểu đồ doanh thu theo quý
+        private void LoadRevenueByQuarterChart()
+        {
+        string query = @"
+        SELECT 
+            CONCAT('Quarter ', QUARTER(Ngay_lap), ' ', YEAR(Ngay_lap)) AS QuarterYear,
+            SUM(Tong_tien) AS TotalRevenue
+        FROM hoadon
+        GROUP BY YEAR(Ngay_lap), QUARTER(Ngay_lap), CONCAT('Quarter ', QUARTER(Ngay_lap), ' ', YEAR(Ngay_lap))
+        ORDER BY YEAR(Ngay_lap), QUARTER(Ngay_lap);
+
+    ";
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    var quarters = new List<string>();
+                    var revenues = new List<double>();
+
+                    while (reader.Read())
+                    {
+                        quarters.Add(reader["QuarterYear"].ToString());
+                        revenues.Add(Convert.ToDouble(reader["TotalRevenue"]));
+                    }
+
+                    cartesianChart1.Series = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "Doanh Thu",
+                    Values = new ChartValues<double>(revenues)
+                }
+            };
+
+                    cartesianChart1.AxisX.Clear();
+                    cartesianChart1.AxisX.Add(new Axis
+                    {
+                        Title = "Quý",
+                        Labels = quarters
+                    });
+
+                    cartesianChart1.AxisY.Clear();
+                    cartesianChart1.AxisY.Add(new Axis
+                    {
+                        Title = "Doanh Thu (VNĐ)"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu biểu đồ doanh thu theo quý: " + ex.Message);
+            }
+        }
+
 
         private void LoadRevenueChart()
         {
@@ -112,13 +190,14 @@ namespace QLDVSC
                     cartesianChart1.AxisY.Clear();
                     cartesianChart1.AxisY.Add(new Axis
                     {
-                        Title = "Doanh Thu (VNĐ)"
+                        Title = "Doanh Thu (VNĐ)",
+                        LabelFormatter = value => value.ToString("N0")
                     });
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải dữ liệu biểu đồ Cartesian Chart: " + ex.Message);
+                MessageBox.Show("Lỗi khi tải dữ liệu biểu đồ Cartesian Chart: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
