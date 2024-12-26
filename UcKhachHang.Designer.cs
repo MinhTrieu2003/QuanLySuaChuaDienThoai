@@ -54,16 +54,17 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripTxtSearch1, toolStripbtnSearch1, toolStripSeparator1, btnAddCustomer, toolStripSeparator2, btnEditCustomer, toolStripSeparator3, btnDeleteCustomer });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1110, 27);
+            toolStrip1.Size = new Size(971, 27);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
             // toolStripTxtSearch1
             // 
             toolStripTxtSearch1.Name = "toolStripTxtSearch1";
-            toolStripTxtSearch1.Size = new Size(300, 27);
+            toolStripTxtSearch1.Size = new Size(263, 27);
             toolStripTxtSearch1.Enter += toolStripbtnSearch1_Click;
             toolStripTxtSearch1.KeyDown += toolStripTxtSearch1_KeyDown;
+            toolStripTxtSearch1.Click += toolStripTxtSearch1_Click;
             // 
             // toolStripbtnSearch1
             // 
@@ -72,7 +73,7 @@
             toolStripbtnSearch1.Image = (Image)resources.GetObject("toolStripbtnSearch1.Image");
             toolStripbtnSearch1.ImageTransparentColor = Color.Magenta;
             toolStripbtnSearch1.Name = "toolStripbtnSearch1";
-            toolStripbtnSearch1.Size = new Size(29, 24);
+            toolStripbtnSearch1.Size = new Size(24, 24);
             toolStripbtnSearch1.Text = "toolStripButton1";
             toolStripbtnSearch1.Click += toolStripbtnSearch1_Click;
             // 
@@ -85,7 +86,7 @@
             // 
             btnAddCustomer.Image = (Image)resources.GetObject("btnAddCustomer.Image");
             btnAddCustomer.Name = "btnAddCustomer";
-            btnAddCustomer.Size = new Size(96, 24);
+            btnAddCustomer.Size = new Size(81, 24);
             btnAddCustomer.Text = "Thêm mới";
             btnAddCustomer.Click += btnAddCustomer_Click;
             // 
@@ -98,7 +99,7 @@
             // 
             btnEditCustomer.Image = (Image)resources.GetObject("btnEditCustomer.Image");
             btnEditCustomer.Name = "btnEditCustomer";
-            btnEditCustomer.Size = new Size(54, 24);
+            btnEditCustomer.Size = new Size(46, 24);
             btnEditCustomer.Text = "Sửa";
             btnEditCustomer.Click += btnEditCustomer_Click;
             // 
@@ -111,7 +112,7 @@
             // 
             btnDeleteCustomer.Image = (Image)resources.GetObject("btnDeleteCustomer.Image");
             btnDeleteCustomer.Name = "btnDeleteCustomer";
-            btnDeleteCustomer.Size = new Size(55, 24);
+            btnDeleteCustomer.Size = new Size(47, 24);
             btnDeleteCustomer.Text = "Xóa";
             btnDeleteCustomer.Click += btnDeleteCustomer_Click;
             // 
@@ -124,11 +125,12 @@
             dgvKhachHang.Dock = DockStyle.Fill;
             dgvKhachHang.EditMode = DataGridViewEditMode.EditOnEnter;
             dgvKhachHang.Location = new Point(0, 27);
+            dgvKhachHang.Margin = new Padding(3, 2, 3, 2);
             dgvKhachHang.Name = "dgvKhachHang";
             dgvKhachHang.ReadOnly = true;
             dgvKhachHang.RowHeadersWidth = 51;
             dgvKhachHang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvKhachHang.Size = new Size(1110, 385);
+            dgvKhachHang.Size = new Size(971, 282);
             dgvKhachHang.TabIndex = 1;
             dgvKhachHang.CellDoubleClick += dgvKhachHang_CellDoubleClick;
             // 
@@ -179,14 +181,15 @@
             // 
             // UcKhachHang
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = SystemColors.ControlLightLight;
             Controls.Add(dgvKhachHang);
             Controls.Add(toolStrip1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "UcKhachHang";
-            Size = new Size(1110, 412);
+            Size = new Size(971, 309);
             Load += UcKhachHang_Load;
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();

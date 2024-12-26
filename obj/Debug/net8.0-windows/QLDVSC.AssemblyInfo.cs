@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QLDVSC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c01da8a97fda22cb26d503afd412923ebcc072c6")]
 [assembly: System.Reflection.AssemblyProductAttribute("QLDVSC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QLDVSC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

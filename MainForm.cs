@@ -18,12 +18,16 @@ namespace QLDVSC
             InitializeComponent();
         }
 
-        
+
 
         private void hệThốngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadUserControl(new UcHeThong());
         }
+        //private void tiếpNhậnToolStripMenuItem1_Click(object sender, EventArgs e)
+        //{
+        //  LoadUserControl(new UcTiepNhan());
+        //}
 
         private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -66,6 +70,11 @@ namespace QLDVSC
         private void MainForm_Load_1(object sender, EventArgs e)
         {
             LoadUserControl(new UcHeThong());
+        }
+
+        private void tIẾPNHẬNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new UcTiepNhan());
         }
     }
 }

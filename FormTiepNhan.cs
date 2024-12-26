@@ -119,6 +119,7 @@ namespace QLDVSC
 
         }
 
+
         private void btnLuuPhieuTiepNhan_Click(object sender, EventArgs e)
         {
             MySqlConnection connection = new MySqlConnection(connectionString);
@@ -267,7 +268,9 @@ namespace QLDVSC
                     connection.Close();
                 }
 
-                MessageBox.Show("Phiếu tiếp nhận đã được lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Phiếu tiếp nhận đã được lưu thành công!",
+       "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             catch (Exception ex)
             {
@@ -275,6 +278,9 @@ namespace QLDVSC
             }
         }
 
-        
+        private void txtTenKhachHang_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

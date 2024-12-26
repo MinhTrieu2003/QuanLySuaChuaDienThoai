@@ -1,0 +1,17 @@
+=========================================
+              PHIẾU SỬA CHỮA
+=========================================
+
+ID Phiếu: 1
+Ngày Tiếp Nhận: 1/1/2024 12:00:00 AM
+Khách Hàng: Nguy?n V?n An
+Số Điện Thoại: 0987654321
+Hãng Thiết Bị: Apple
+Mô Tả Lỗi: Không kh?i ??ng ???c
+Tình Trạng Sửa Chữa: Đã sửa
+Nhân Viên Sửa Chữa: Norma Fisher
+Dịch Vụ: S?a ch?a ph?n c?ng
+Số Lượng Linh Kiện: 2
+Giá Tiền: 1000000
+
+=========================================

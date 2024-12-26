@@ -1,0 +1,13 @@
+=========================================
+              PHIẾU TIẾP NHẬN
+=========================================
+
+ID Phiếu: 2
+Ngày Tiếp Nhận: 2/1/2024 12:00:00 AM
+Khách Hàng: Tr?n Th? Bích
+Số Điện Thoại: 0912345678
+Hãng Thiết Bị: Samsung
+Model Thiết Bị: Galaxy S21
+Nhân Viên Tiếp Nhận: Brian Hamilton
+
+=========================================

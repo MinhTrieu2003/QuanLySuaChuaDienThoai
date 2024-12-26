@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Downloads\\QLDVSC\\QLDVSC\\QLDVSC.csproj": {}
+    "C:\\Users\\Admin\\QuanLySuaChuaDienThoai\\QLDVSC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Downloads\\QLDVSC\\QLDVSC\\QLDVSC.csproj": {
+    "C:\\Users\\Admin\\QuanLySuaChuaDienThoai\\QLDVSC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Downloads\\QLDVSC\\QLDVSC\\QLDVSC.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\QuanLySuaChuaDienThoai\\QLDVSC.csproj",
         "projectName": "QLDVSC",
-        "projectPath": "C:\\Users\\Admin\\Downloads\\QLDVSC\\QLDVSC\\QLDVSC.csproj",
+        "projectPath": "C:\\Users\\Admin\\QuanLySuaChuaDienThoai\\QLDVSC.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Downloads\\QLDVSC\\QLDVSC\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\QuanLySuaChuaDienThoai\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,9 +45,17 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "LiveCharts.WinForms.NetCore3": {
+              "target": "Package",
+              "version": "[0.9.8, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[9.1.0, )"
+            },
+            "itext7": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [

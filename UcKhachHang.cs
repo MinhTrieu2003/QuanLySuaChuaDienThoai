@@ -114,7 +114,7 @@ namespace QLDVSC
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    
+
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
                         try
@@ -129,7 +129,7 @@ namespace QLDVSC
 
                             MessageBox.Show("Xóa khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            
+
                             LoadCustomers();
                         }
                         catch (Exception ex)
@@ -141,7 +141,7 @@ namespace QLDVSC
             }
             else
             {
-                
+
                 MessageBox.Show("Vui lòng chọn một khách hàng để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -257,6 +257,16 @@ namespace QLDVSC
                     historyForm.ShowDialog();
                 }
             }
+        }
+
+        private void toolStripTxtSearch1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
