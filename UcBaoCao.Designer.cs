@@ -89,8 +89,8 @@ namespace QLDVSC
             this.comboBoxRevenueFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRevenueFilter.FormattingEnabled = true;
             this.comboBoxRevenueFilter.Items.AddRange(new object[] {
-                "Theo Tháng",
-                "Theo Quý"
+                "By Month",
+                "By Quarter"
             });
             this.comboBoxRevenueFilter.Location = new System.Drawing.Point(10, 10);
             this.comboBoxRevenueFilter.Name = "comboBoxRevenueFilter";
