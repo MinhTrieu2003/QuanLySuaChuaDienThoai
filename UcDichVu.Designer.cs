@@ -114,6 +114,7 @@
             // 
             // dgvDichVu
             // 
+            dgvDichVu.AllowUserToOrderColumns = true;
             dgvDichVu.BackgroundColor = SystemColors.Control;
             dgvDichVu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDichVu.Columns.AddRange(new DataGridViewColumn[] { ID_dich_vu, Ten_dich_vu, Gia });
@@ -127,30 +128,27 @@
             // 
             // ID_dich_vu
             // 
-            ID_dich_vu.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            ID_dich_vu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ID_dich_vu.DataPropertyName = "ID_dich_vu";
             ID_dich_vu.HeaderText = "Mã dịch vụ";
             ID_dich_vu.MinimumWidth = 6;
             ID_dich_vu.Name = "ID_dich_vu";
-            ID_dich_vu.Width = 293;
             // 
             // Ten_dich_vu
             // 
-            Ten_dich_vu.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Ten_dich_vu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Ten_dich_vu.DataPropertyName = "Ten_dich_vu";
             Ten_dich_vu.HeaderText = "Tên dịch vụ";
             Ten_dich_vu.MinimumWidth = 6;
             Ten_dich_vu.Name = "Ten_dich_vu";
-            Ten_dich_vu.Width = 292;
             // 
             // Gia
             // 
-            Gia.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Gia.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Gia.DataPropertyName = "Gia";
             Gia.HeaderText = "Giá";
             Gia.MinimumWidth = 6;
             Gia.Name = "Gia";
-            Gia.Width = 293;
             // 
             // UcDichVu
             // 

@@ -71,7 +71,7 @@
             toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
             toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             toolStripDropDownButton1.Size = new Size(148, 24);
-            toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+            toolStripDropDownButton1.Text = "Danh mục";
             // 
             // dịchVụSửaChữaToolStripMenuItem
             // 

@@ -42,16 +42,19 @@
             // dgvPhieuTiepNhan
             // 
             dgvPhieuTiepNhan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPhieuTiepNhan.Location = new Point(14, 113);
+            dgvPhieuTiepNhan.Location = new Point(16, 138);
+            dgvPhieuTiepNhan.Margin = new Padding(3, 4, 3, 4);
             dgvPhieuTiepNhan.Name = "dgvPhieuTiepNhan";
-            dgvPhieuTiepNhan.Size = new Size(902, 398);
+            dgvPhieuTiepNhan.RowHeadersWidth = 51;
+            dgvPhieuTiepNhan.Size = new Size(1094, 349);
             dgvPhieuTiepNhan.TabIndex = 0;
             // 
             // btnLoadData
             // 
-            btnLoadData.Location = new Point(814, 67);
+            btnLoadData.Location = new Point(750, 89);
+            btnLoadData.Margin = new Padding(3, 4, 3, 4);
             btnLoadData.Name = "btnLoadData";
-            btnLoadData.Size = new Size(102, 23);
+            btnLoadData.Size = new Size(117, 31);
             btnLoadData.TabIndex = 1;
             btnLoadData.Text = "Tải Dữ liệu";
             btnLoadData.UseVisualStyleBackColor = true;
@@ -59,9 +62,10 @@
             // 
             // btnSearchPhieuTiepNhan
             // 
-            btnSearchPhieuTiepNhan.Location = new Point(14, 67);
+            btnSearchPhieuTiepNhan.Location = new Point(100, 89);
+            btnSearchPhieuTiepNhan.Margin = new Padding(3, 4, 3, 4);
             btnSearchPhieuTiepNhan.Name = "btnSearchPhieuTiepNhan";
-            btnSearchPhieuTiepNhan.Size = new Size(110, 23);
+            btnSearchPhieuTiepNhan.Size = new Size(112, 31);
             btnSearchPhieuTiepNhan.TabIndex = 2;
             btnSearchPhieuTiepNhan.Text = "Search by ID";
             btnSearchPhieuTiepNhan.UseVisualStyleBackColor = true;
@@ -69,17 +73,20 @@
             // 
             // txtSearchPhieuTiepNhan
             // 
-            txtSearchPhieuTiepNhan.Location = new Point(130, 68);
+            txtSearchPhieuTiepNhan.Location = new Point(16, 89);
+            txtSearchPhieuTiepNhan.Margin = new Padding(3, 4, 3, 4);
+            txtSearchPhieuTiepNhan.Multiline = true;
             txtSearchPhieuTiepNhan.Name = "txtSearchPhieuTiepNhan";
-            txtSearchPhieuTiepNhan.Size = new Size(69, 23);
+            txtSearchPhieuTiepNhan.Size = new Size(78, 31);
             txtSearchPhieuTiepNhan.TabIndex = 3;
             txtSearchPhieuTiepNhan.TextChanged += txtSearchPhieuTiepNhan_TextChanged;
             // 
             // btnXuatPhieuTiepNhan
             // 
-            btnXuatPhieuTiepNhan.Location = new Point(615, 67);
+            btnXuatPhieuTiepNhan.Location = new Point(581, 89);
+            btnXuatPhieuTiepNhan.Margin = new Padding(3, 4, 3, 4);
             btnXuatPhieuTiepNhan.Name = "btnXuatPhieuTiepNhan";
-            btnXuatPhieuTiepNhan.Size = new Size(143, 23);
+            btnXuatPhieuTiepNhan.Size = new Size(163, 31);
             btnXuatPhieuTiepNhan.TabIndex = 4;
             btnXuatPhieuTiepNhan.Text = "Xuất phiếu tiếp nhận";
             btnXuatPhieuTiepNhan.UseVisualStyleBackColor = true;
@@ -89,17 +96,18 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Consolas", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(368, 10);
+            label1.Location = new Point(401, 31);
             label1.Name = "label1";
-            label1.Size = new Size(214, 24);
+            label1.Size = new Size(269, 32);
             label1.TabIndex = 7;
             label1.Text = "QUẢN LÝ TIẾP NHẬN";
             // 
             // btnXoaPhieuTiepNhan
             // 
-            btnXoaPhieuTiepNhan.Location = new Point(413, 67);
+            btnXoaPhieuTiepNhan.Location = new Point(401, 89);
+            btnXoaPhieuTiepNhan.Margin = new Padding(3, 4, 3, 4);
             btnXoaPhieuTiepNhan.Name = "btnXoaPhieuTiepNhan";
-            btnXoaPhieuTiepNhan.Size = new Size(152, 23);
+            btnXoaPhieuTiepNhan.Size = new Size(174, 31);
             btnXoaPhieuTiepNhan.TabIndex = 8;
             btnXoaPhieuTiepNhan.Text = "Xóa phiếu tiếp nhận";
             btnXoaPhieuTiepNhan.UseVisualStyleBackColor = true;
@@ -107,9 +115,10 @@
             // 
             // btnTaoPhieuTiepNhan
             // 
-            btnTaoPhieuTiepNhan.Location = new Point(230, 67);
+            btnTaoPhieuTiepNhan.Location = new Point(218, 89);
+            btnTaoPhieuTiepNhan.Margin = new Padding(3, 4, 3, 4);
             btnTaoPhieuTiepNhan.Name = "btnTaoPhieuTiepNhan";
-            btnTaoPhieuTiepNhan.Size = new Size(149, 23);
+            btnTaoPhieuTiepNhan.Size = new Size(170, 31);
             btnTaoPhieuTiepNhan.TabIndex = 9;
             btnTaoPhieuTiepNhan.Text = "Tạo phiếu tiếp nhận";
             btnTaoPhieuTiepNhan.UseVisualStyleBackColor = true;
@@ -117,7 +126,7 @@
             // 
             // UcTiepNhan
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btnTaoPhieuTiepNhan);
             Controls.Add(btnXoaPhieuTiepNhan);
@@ -127,8 +136,9 @@
             Controls.Add(btnSearchPhieuTiepNhan);
             Controls.Add(btnLoadData);
             Controls.Add(dgvPhieuTiepNhan);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "UcTiepNhan";
-            Size = new Size(986, 430);
+            Size = new Size(1127, 491);
             ((System.ComponentModel.ISupportInitialize)dgvPhieuTiepNhan).EndInit();
             ResumeLayout(false);
             PerformLayout();
