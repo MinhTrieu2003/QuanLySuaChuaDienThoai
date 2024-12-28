@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             txtIDPhieuSuaChua = new TextBox();
@@ -37,67 +36,59 @@
             txtHuy = new Button();
             SuspendLayout();
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.AppWorkspace;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(286, 61);
-            label1.Name = "label1";
-            label1.Size = new Size(218, 21);
-            label1.TabIndex = 0;
-            label1.Text = "Thay Đổi Tình Trạng Sửa Chữa";
-           // label1.Click += label1_Click;
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(163, 103);
+            label2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(60, 45);
             label2.Name = "label2";
-            label2.Size = new Size(115, 17);
+            label2.Size = new Size(155, 23);
             label2.TabIndex = 1;
             label2.Text = "ID Phiếu Sửa Chữa";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(163, 149);
+            label3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(60, 152);
             label3.Name = "label3";
-            label3.Size = new Size(93, 17);
+            label3.Size = new Size(123, 23);
             label3.TabIndex = 2;
             label3.Text = "Tình trạng mới";
             // 
             // txtIDPhieuSuaChua
             // 
-            txtIDPhieuSuaChua.Location = new Point(286, 97);
+            txtIDPhieuSuaChua.Location = new Point(60, 94);
+            txtIDPhieuSuaChua.Margin = new Padding(3, 4, 3, 4);
             txtIDPhieuSuaChua.Name = "txtIDPhieuSuaChua";
-            txtIDPhieuSuaChua.Size = new Size(218, 23);
+            txtIDPhieuSuaChua.Size = new Size(249, 27);
             txtIDPhieuSuaChua.TabIndex = 3;
             // 
             // txtTinhTrangMoi
             // 
-            txtTinhTrangMoi.Location = new Point(286, 148);
+            txtTinhTrangMoi.Location = new Point(60, 201);
+            txtTinhTrangMoi.Margin = new Padding(3, 4, 3, 4);
             txtTinhTrangMoi.Name = "txtTinhTrangMoi";
-            txtTinhTrangMoi.Size = new Size(218, 23);
+            txtTinhTrangMoi.Size = new Size(249, 27);
             txtTinhTrangMoi.TabIndex = 4;
             // 
             // btnLuuThongTin
             // 
-            btnLuuThongTin.Location = new Point(286, 211);
+            btnLuuThongTin.Location = new Point(83, 315);
+            btnLuuThongTin.Margin = new Padding(3, 4, 3, 4);
             btnLuuThongTin.Name = "btnLuuThongTin";
-            btnLuuThongTin.Size = new Size(111, 23);
+            btnLuuThongTin.Size = new Size(84, 31);
             btnLuuThongTin.TabIndex = 5;
-            btnLuuThongTin.Text = "Lưu thông tin";
+            btnLuuThongTin.Text = "Lưu";
             btnLuuThongTin.UseVisualStyleBackColor = true;
             btnLuuThongTin.Click += btnLuuThongTin_Click;
             // 
             // txtHuy
             // 
-            txtHuy.Location = new Point(426, 211);
+            txtHuy.Location = new Point(193, 315);
+            txtHuy.Margin = new Padding(3, 4, 3, 4);
             txtHuy.Name = "txtHuy";
-            txtHuy.Size = new Size(97, 23);
+            txtHuy.Size = new Size(84, 31);
             txtHuy.TabIndex = 6;
             txtHuy.Text = "Hủy";
             txtHuy.UseVisualStyleBackColor = true;
@@ -105,25 +96,24 @@
             // 
             // FormSuaTinhTrang
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(377, 400);
             Controls.Add(txtHuy);
             Controls.Add(btnLuuThongTin);
             Controls.Add(txtTinhTrangMoi);
             Controls.Add(txtIDPhieuSuaChua);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormSuaTinhTrang";
-            Text = "FormSuaTinhTrang";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Cập nhật tình trạng sửa chữa";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
         private Label label2;
         private Label label3;
         private TextBox txtIDPhieuSuaChua;

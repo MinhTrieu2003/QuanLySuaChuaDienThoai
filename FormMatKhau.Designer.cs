@@ -188,6 +188,7 @@
             Controls.Add(label1);
             Controls.Add(btnCapNhat);
             Name = "FormMatKhau";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Thay đổi mật khẩu";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

@@ -74,44 +74,57 @@ namespace QLDVSC
             }
         }
 
-        private void btnTaoPhieuTiepNhan_Click(object sender, EventArgs e)
+
+
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// Hiển thị một hộp thoại tùy chỉnh với văn bản, textbox, và các nút OK/Cancel.
+        /// </summary>
+        /// <param name="prompt">Nội dung thông báo.</param>
+        /// <param name="title">Tiêu đề cửa sổ.</param>
+        /// <returns>Chuỗi đầu vào từ người dùng hoặc null nếu hủy.</returns>
+        private string ShowInputDialog(string prompt, string title)
         {
-            // Mở form tiếp nhận
-            FormTiepNhan formTiepNhan = new FormTiepNhan();
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            Form inputForm = new Form
             {
-                try
-                {
-                    conn.Open();
+                Width = 400,
+                Height = 200,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = title,
+                StartPosition = FormStartPosition.CenterScreen
+            };
 
-                    // Truy vấn lấy ngẫu nhiên 1 nhân viên
-                    string query = "SELECT Ho_ten FROM NhanVien ORDER BY RAND() LIMIT 1";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
+            Label lblPrompt = new Label { Left = 10, Top = 20, Text = prompt, Width = 370 };
+            TextBox txtInput = new TextBox { Left = 10, Top = 50, Width = 360 };
+            Button btnOk = new Button { Text = "OK", Left = 220, Width = 75, Top = 100, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "Cancel", Left = 300, Width = 75, Top = 100, DialogResult = DialogResult.Cancel };
 
-                    // Thực thi truy vấn và lấy tên nhân viên
-                    object result = cmd.ExecuteScalar();
+            inputForm.Controls.Add(lblPrompt);
+            inputForm.Controls.Add(txtInput);
+            inputForm.Controls.Add(btnOk);
+            inputForm.Controls.Add(btnCancel);
 
-                    // Gán tên nhân viên vào lbNhanVienSuaChua trong FormTiepNhan
-                    if (result != null)
-                    {
-                        // Truyền tên nhân viên vào FormTiepNhan
-                        formTiepNhan.SetNhanVienSuaChua(result.ToString());
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi kết nối cơ sở dữ liệu: " + ex.Message);
-                }
+            inputForm.AcceptButton = btnOk;
+            inputForm.CancelButton = btnCancel;
+
+            if (inputForm.ShowDialog() == DialogResult.OK)
+            {
+                return txtInput.Text;
             }
-
-            // Mở form tiếp nhận
-            formTiepNhan.Show();
+            return null;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSearch0_Click(object sender, EventArgs e)
         {
-            string searchID = txtSearch.Text.Trim(); // Lấy giá trị từ TextBox
+            string searchID = txtSearch0.Text.Trim(); // Lấy giá trị từ TextBox
             if (string.IsNullOrEmpty(searchID))
             {
                 MessageBox.Show("Vui lòng nhập ID phiếu sửa chữa!");
@@ -125,62 +138,6 @@ namespace QLDVSC
                 {
                     conn.Open();
                     string query = @"SELECT 
-                    psc.ID_phieu_sua_chua AS IDPhieuSuaChua,
-                    psc.Ngay_tiep_nhan AS NgayTiepNhan,
-                    kh.Ho_ten AS TenKhachHang,
-                    kh.So_dien_thoai AS SoDienThoai,
-                    tb.Hang AS TenThietBi,
-                    psc.Mo_ta_loi AS MoTaLoi,
-                    psc.Tinh_trang AS TinhTrangSuaChua,
-                    nv.Ho_ten AS NhanVienSuaChua,
-                    dv.Ten_dich_vu AS TenDichVu,
-                    ctsc.So_luong_linh_kien_su_dung AS SoLuongLinhKien,
-                    ctsc.Tong_chi_phi AS GiaTien
-                FROM 
-                    PhieuSuaChua psc
-                JOIN 
-                    PhieuTiepNhanThietBi ptn ON psc.ID_phieu_tiep_nhan = ptn.ID_phieu_tiep_nhan
-                JOIN 
-                    KhachHang kh ON ptn.ID_khach_hang = kh.ID_khach_hang
-                JOIN 
-                    ThietBi tb ON ptn.ID_thiet_bi = tb.ID_thiet_bi
-                JOIN 
-                    NhanVien nv ON ptn.ID_nhan_vien = nv.ID_nhan_vien
-                JOIN 
-                    ChiTietSuaChua ctsc ON psc.ID_phieu_sua_chua = ctsc.ID_phieu_sua_chua
-                JOIN 
-                    DichVu dv ON ctsc.ID_dich_vu = dv.ID_dich_vu
-                WHERE psc.ID_phieu_sua_chua = @IDPhieuSuaChua";
-
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@IDPhieuSuaChua", searchID); // Thêm tham số vào câu truy vấn
-
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    dataGridView1.DataSource = dt; // Gắn dữ liệu kết quả vào DataGridView
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message);
-                }
-            }
-
-        }
-
-        private void btnSuaTinhTrang_Click(object sender, EventArgs e)
-        {
-            FormSuaTinhTrang form = new FormSuaTinhTrang();
-            form.ShowDialog();
-
-        }
-        private void XuatPhieuSuaChua(string idPhieuSuaChua)
-        {
-            // Kết nối tới MySQL và lấy dữ liệu
-            string connectionString = "server=localhost;database=QuanLySuaChua1;uid=root;pwd=123456789;";
-            string query = @"
-        SELECT 
             psc.ID_phieu_sua_chua AS IDPhieuSuaChua,
             psc.Ngay_tiep_nhan AS NgayTiepNhan,
             kh.Ho_ten AS TenKhachHang,
@@ -207,6 +164,62 @@ namespace QLDVSC
         JOIN 
             DichVu dv ON ctsc.ID_dich_vu = dv.ID_dich_vu
         WHERE psc.ID_phieu_sua_chua = @IDPhieuSuaChua";
+
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@IDPhieuSuaChua", searchID); // Thêm tham số vào câu truy vấn
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dataGridView1.DataSource = dt; // Gắn dữ liệu kết quả vào DataGridView
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnCapNhatTT_Click(object sender, EventArgs e)
+        {
+            FormSuaTinhTrang form = new FormSuaTinhTrang();
+            form.ShowDialog();
+
+        }
+
+        private void XuatPhieuSuaChua(string idPhieuSuaChua)
+        {
+            // Kết nối tới MySQL và lấy dữ liệu
+            string connectionString = "server=localhost;database=QuanLySuaChua1;uid=root;pwd=123456789;";
+            string query = @"
+SELECT 
+    psc.ID_phieu_sua_chua AS IDPhieuSuaChua,
+    psc.Ngay_tiep_nhan AS NgayTiepNhan,
+    kh.Ho_ten AS TenKhachHang,
+    kh.So_dien_thoai AS SoDienThoai,
+    tb.Hang AS TenThietBi,
+    psc.Mo_ta_loi AS MoTaLoi,
+    psc.Tinh_trang AS TinhTrangSuaChua,
+    nv.Ho_ten AS NhanVienSuaChua,
+    dv.Ten_dich_vu AS TenDichVu,
+    ctsc.So_luong_linh_kien_su_dung AS SoLuongLinhKien,
+    ctsc.Tong_chi_phi AS GiaTien
+FROM 
+    PhieuSuaChua psc
+JOIN 
+    PhieuTiepNhanThietBi ptn ON psc.ID_phieu_tiep_nhan = ptn.ID_phieu_tiep_nhan
+JOIN 
+    KhachHang kh ON ptn.ID_khach_hang = kh.ID_khach_hang
+JOIN 
+    ThietBi tb ON ptn.ID_thiet_bi = tb.ID_thiet_bi
+JOIN 
+    NhanVien nv ON ptn.ID_nhan_vien = nv.ID_nhan_vien
+JOIN 
+    ChiTietSuaChua ctsc ON psc.ID_phieu_sua_chua = ctsc.ID_phieu_sua_chua
+JOIN 
+    DichVu dv ON ctsc.ID_dich_vu = dv.ID_dich_vu
+WHERE psc.ID_phieu_sua_chua = @IDPhieuSuaChua";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -268,7 +281,7 @@ namespace QLDVSC
             }
         }
 
-        private void btnXuatPhieuSuaChua_Click(object sender, EventArgs e)
+        private void btnXuatPhieu_Click(object sender, EventArgs e)
         {
             // Tạo dialog
             Form dialog = new Form();
@@ -322,26 +335,16 @@ namespace QLDVSC
                     MessageBox.Show("ID Phiếu Sửa Chữa không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void btnXoaPhieuSuaChua_Click(object sender, EventArgs e)
+        private void btnXoaPhieu_Click(object sender, EventArgs e)
         {
-            string input = Microsoft.VisualBasic.Interaction.InputBox(
-                "Nhập ID Phiếu Sửa Chữa cần xóa:",
-                "Xóa Phiếu Sửa Chữa",
-                "",
-                -1,
-                -1);
-            string connectionString = "server=localhost;database=QuanLySuaChua1;uid=root;pwd=123456789;";
-
+            string input = ShowInputDialog("Nhập ID Phiếu Sửa Chữa cần xóa:", "Xóa Phiếu Sửa Chữa");
 
             if (!string.IsNullOrWhiteSpace(input) && int.TryParse(input, out int idPhieuSuaChua))
             {
+                string connectionString = "server=localhost;database=QuanLySuaChua1;uid=root;pwd=123456789;";
                 MySqlConnection connection = new MySqlConnection(connectionString);
 
                 try
@@ -350,8 +353,8 @@ namespace QLDVSC
 
                     // Xóa dữ liệu trong bảng HoaDon liên quan
                     string deleteHoaDon = @"
-                DELETE FROM HoaDon
-                WHERE ID_phieu_sua_chua = @IDPhieuSuaChua";
+DELETE FROM HoaDon
+WHERE ID_phieu_sua_chua = @IDPhieuSuaChua";
                     using (MySqlCommand cmd = new MySqlCommand(deleteHoaDon, connection))
                     {
                         cmd.Parameters.AddWithValue("@IDPhieuSuaChua", idPhieuSuaChua);
@@ -360,8 +363,8 @@ namespace QLDVSC
 
                     // Xóa dữ liệu trong bảng PhieuSuaChua_ThongTinLoi liên quan
                     string deleteThongTinLoi = @"
-                DELETE FROM PhieuSuaChua_ThongTinLoi
-                WHERE ID_phieu_sua_chua = @IDPhieuSuaChua";
+DELETE FROM PhieuSuaChua_ThongTinLoi
+WHERE ID_phieu_sua_chua = @IDPhieuSuaChua";
                     using (MySqlCommand cmd = new MySqlCommand(deleteThongTinLoi, connection))
                     {
                         cmd.Parameters.AddWithValue("@IDPhieuSuaChua", idPhieuSuaChua);
@@ -370,8 +373,8 @@ namespace QLDVSC
 
                     // Xóa dữ liệu trong bảng ChiTietSuaChua liên quan
                     string deleteChiTietSuaChua = @"
-                DELETE FROM ChiTietSuaChua
-                WHERE ID_phieu_sua_chua = @IDPhieuSuaChua";
+DELETE FROM ChiTietSuaChua
+WHERE ID_phieu_sua_chua = @IDPhieuSuaChua";
                     using (MySqlCommand cmd = new MySqlCommand(deleteChiTietSuaChua, connection))
                     {
                         cmd.Parameters.AddWithValue("@IDPhieuSuaChua", idPhieuSuaChua);
@@ -380,8 +383,8 @@ namespace QLDVSC
 
                     // Xóa dữ liệu trong bảng PhieuSuaChua
                     string deletePhieuSuaChua = @"
-                DELETE FROM PhieuSuaChua
-                WHERE ID_phieu_sua_chua = @IDPhieuSuaChua";
+DELETE FROM PhieuSuaChua
+WHERE ID_phieu_sua_chua = @IDPhieuSuaChua";
                     using (MySqlCommand cmd = new MySqlCommand(deletePhieuSuaChua, connection))
                     {
                         cmd.Parameters.AddWithValue("@IDPhieuSuaChua", idPhieuSuaChua);
@@ -403,7 +406,7 @@ namespace QLDVSC
             {
                 MessageBox.Show("ID không hợp lệ hoặc bạn đã hủy thao tác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
 
+        }
     }
 }

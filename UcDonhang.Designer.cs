@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcDonhang));
             dataGridView1 = new DataGridView();
             IDPhieuSuaChua = new DataGridViewTextBoxColumn();
             NgayTiepNhan = new DataGridViewTextBoxColumn();
@@ -40,165 +41,198 @@
             TenDichVu = new DataGridViewTextBoxColumn();
             SoLuongLinhKien = new DataGridViewTextBoxColumn();
             GiaTien = new DataGridViewTextBoxColumn();
-            txtSearch = new TextBox();
-            btnSearch = new Button();
-            btnSuaTinhTrang = new Button();
-            btnXuatPhieuSuaChua = new Button();
-            label1 = new Label();
-            btnXoaPhieuSuaChua = new Button();
+            toolStrip1 = new ToolStrip();
+            txtSearch0 = new ToolStripTextBox();
+            btnSearch0 = new ToolStripLabel();
+            toolStripSeparator1 = new ToolStripSeparator();
+            btnCapNhatTT = new ToolStripLabel();
+            toolStripSeparator2 = new ToolStripSeparator();
+            btnXuatPhieu = new ToolStripLabel();
+            toolStripSeparator3 = new ToolStripSeparator();
+            btnXoaPhieu = new ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { IDPhieuSuaChua, NgayTiepNhan, TenKhachHang, SoDienThoai, TenThietBi, MoTaLoi, TinhTrangSuaChua, NhanVienSuaChua, TenDichVu, SoLuongLinhKien, GiaTien });
-            dataGridView1.Location = new Point(20, 126);
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
+            dataGridView1.Location = new Point(0, 27);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1184, 345);
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(1108, 461);
             dataGridView1.TabIndex = 0;
             // 
             // IDPhieuSuaChua
             // 
+            IDPhieuSuaChua.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             IDPhieuSuaChua.DataPropertyName = "IDPhieuSuaChua";
             IDPhieuSuaChua.HeaderText = "ID Phiếu Sửa Chữa";
+            IDPhieuSuaChua.MinimumWidth = 6;
             IDPhieuSuaChua.Name = "IDPhieuSuaChua";
             // 
             // NgayTiepNhan
             // 
+            NgayTiepNhan.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             NgayTiepNhan.DataPropertyName = "NgayTiepNhan";
             NgayTiepNhan.HeaderText = "Ngày tiếp nhận";
+            NgayTiepNhan.MinimumWidth = 6;
             NgayTiepNhan.Name = "NgayTiepNhan";
             // 
             // TenKhachHang
             // 
+            TenKhachHang.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             TenKhachHang.DataPropertyName = "TenKhachHang";
             TenKhachHang.HeaderText = "Tên khách hàng";
+            TenKhachHang.MinimumWidth = 6;
             TenKhachHang.Name = "TenKhachHang";
             // 
             // SoDienThoai
             // 
+            SoDienThoai.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             SoDienThoai.DataPropertyName = "SoDienThoai";
             SoDienThoai.HeaderText = "Số điện thoại";
+            SoDienThoai.MinimumWidth = 6;
             SoDienThoai.Name = "SoDienThoai";
             // 
             // TenThietBi
             // 
+            TenThietBi.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             TenThietBi.DataPropertyName = "TenThietBi";
             TenThietBi.HeaderText = "Tên thiết bị";
+            TenThietBi.MinimumWidth = 6;
             TenThietBi.Name = "TenThietBi";
             // 
             // MoTaLoi
             // 
+            MoTaLoi.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             MoTaLoi.DataPropertyName = "MoTaLoi";
             MoTaLoi.HeaderText = "Mô tả lỗi";
+            MoTaLoi.MinimumWidth = 6;
             MoTaLoi.Name = "MoTaLoi";
             // 
             // TinhTrangSuaChua
             // 
+            TinhTrangSuaChua.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             TinhTrangSuaChua.DataPropertyName = "TinhTrangSuaChua";
             TinhTrangSuaChua.HeaderText = "Tình trạng sửa chữa";
+            TinhTrangSuaChua.MinimumWidth = 6;
             TinhTrangSuaChua.Name = "TinhTrangSuaChua";
             TinhTrangSuaChua.Resizable = DataGridViewTriState.True;
             TinhTrangSuaChua.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // NhanVienSuaChua
             // 
+            NhanVienSuaChua.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             NhanVienSuaChua.DataPropertyName = "NhanVienSuaChua";
             NhanVienSuaChua.HeaderText = "Nhân viên sửa chữa";
+            NhanVienSuaChua.MinimumWidth = 6;
             NhanVienSuaChua.Name = "NhanVienSuaChua";
             // 
             // TenDichVu
             // 
+            TenDichVu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             TenDichVu.DataPropertyName = "TenDichVu";
             TenDichVu.HeaderText = "Tên dịch vụ";
+            TenDichVu.MinimumWidth = 6;
             TenDichVu.Name = "TenDichVu";
             // 
             // SoLuongLinhKien
             // 
+            SoLuongLinhKien.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             SoLuongLinhKien.DataPropertyName = "SoLuongLinhKien";
             SoLuongLinhKien.HeaderText = "Số lượng linh kiện";
+            SoLuongLinhKien.MinimumWidth = 6;
             SoLuongLinhKien.Name = "SoLuongLinhKien";
             // 
             // GiaTien
             // 
+            GiaTien.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             GiaTien.DataPropertyName = "GiaTien";
             GiaTien.HeaderText = "Thành Tiền";
+            GiaTien.MinimumWidth = 6;
             GiaTien.Name = "GiaTien";
             // 
-            // txtSearch
+            // toolStrip1
             // 
-            txtSearch.Location = new Point(101, 60);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(100, 23);
-            txtSearch.TabIndex = 2;
+            toolStrip1.ImageScalingSize = new Size(20, 20);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { txtSearch0, btnSearch0, toolStripSeparator1, btnCapNhatTT, toolStripSeparator2, btnXuatPhieu, toolStripSeparator3, btnXoaPhieu });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(1108, 27);
+            toolStrip1.TabIndex = 1;
+            toolStrip1.Text = "toolStrip1";
             // 
-            // btnSearch
+            // txtSearch0
             // 
-            btnSearch.Location = new Point(20, 60);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(75, 23);
-            btnSearch.TabIndex = 3;
-            btnSearch.Text = "Search";
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += button1_Click;
+            txtSearch0.Name = "txtSearch0";
+            txtSearch0.Size = new Size(250, 27);
             // 
-            // btnSuaTinhTrang
+            // btnSearch0
             // 
-            btnSuaTinhTrang.Location = new Point(261, 61);
-            btnSuaTinhTrang.Name = "btnSuaTinhTrang";
-            btnSuaTinhTrang.Size = new Size(124, 23);
-            btnSuaTinhTrang.TabIndex = 4;
-            btnSuaTinhTrang.Text = "Sửa Tình Trạng ";
-            btnSuaTinhTrang.UseVisualStyleBackColor = true;
-            btnSuaTinhTrang.Click += btnSuaTinhTrang_Click;
+            btnSearch0.Image = (Image)resources.GetObject("btnSearch0.Image");
+            btnSearch0.Name = "btnSearch0";
+            btnSearch0.Size = new Size(20, 24);
+            btnSearch0.Click += btnSearch0_Click;
             // 
-            // btnXuatPhieuSuaChua
+            // toolStripSeparator1
             // 
-            btnXuatPhieuSuaChua.Location = new Point(616, 58);
-            btnXuatPhieuSuaChua.Name = "btnXuatPhieuSuaChua";
-            btnXuatPhieuSuaChua.Size = new Size(143, 25);
-            btnXuatPhieuSuaChua.TabIndex = 5;
-            btnXuatPhieuSuaChua.Text = "Xuất phiếu sửa chữa";
-            btnXuatPhieuSuaChua.UseVisualStyleBackColor = true;
-            btnXuatPhieuSuaChua.Click += btnXuatPhieuSuaChua_Click;
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 27);
             // 
-            // label1
+            // btnCapNhatTT
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Consolas", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(401, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(202, 24);
-            label1.TabIndex = 6;
-            label1.Text = "QUẢN LÝ SỬA CHỮA";
-            label1.Click += label1_Click;
+            btnCapNhatTT.Image = (Image)resources.GetObject("btnCapNhatTT.Image");
+            btnCapNhatTT.Name = "btnCapNhatTT";
+            btnCapNhatTT.Size = new Size(160, 24);
+            btnCapNhatTT.Text = "Cập nhật trạng thái ";
+            btnCapNhatTT.Click += btnCapNhatTT_Click;
             // 
-            // btnXoaPhieuSuaChua
+            // toolStripSeparator2
             // 
-            btnXoaPhieuSuaChua.Location = new Point(451, 61);
-            btnXoaPhieuSuaChua.Name = "btnXoaPhieuSuaChua";
-            btnXoaPhieuSuaChua.Size = new Size(133, 23);
-            btnXoaPhieuSuaChua.TabIndex = 7;
-            btnXoaPhieuSuaChua.Text = "Xóa phiếu sửa chữa";
-            btnXoaPhieuSuaChua.UseVisualStyleBackColor = true;
-            btnXoaPhieuSuaChua.Click += btnXoaPhieuSuaChua_Click;
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 27);
+            // 
+            // btnXuatPhieu
+            // 
+            btnXuatPhieu.Image = (Image)resources.GetObject("btnXuatPhieu.Image");
+            btnXuatPhieu.Name = "btnXuatPhieu";
+            btnXuatPhieu.Size = new Size(100, 24);
+            btnXuatPhieu.Text = "Xuất phiếu";
+            btnXuatPhieu.Click += btnXuatPhieu_Click;
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(6, 27);
+            // 
+            // btnXoaPhieu
+            // 
+            btnXoaPhieu.Image = (Image)resources.GetObject("btnXoaPhieu.Image");
+            btnXoaPhieu.Name = "btnXoaPhieu";
+            btnXoaPhieu.Size = new Size(96, 24);
+            btnXoaPhieu.Text = "Xóa phiếu";
+            btnXoaPhieu.Click += btnXoaPhieu_Click;
             // 
             // UcDonhang
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(btnXoaPhieuSuaChua);
-            Controls.Add(label1);
-            Controls.Add(btnXuatPhieuSuaChua);
-            Controls.Add(btnSuaTinhTrang);
-            Controls.Add(btnSearch);
-            Controls.Add(txtSearch);
             Controls.Add(dataGridView1);
+            Controls.Add(toolStrip1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "UcDonhang";
-            Size = new Size(1093, 383);
+            Size = new Size(1108, 488);
             Load += UcDonhang_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -206,6 +240,17 @@
         #endregion
 
         private DataGridView dataGridView1;
+        private TextBox txtSearch;
+        private Button btnSearch;
+        private ToolStrip toolStrip1;
+        private ToolStripTextBox txtSearch0;
+        private ToolStripLabel btnSearch0;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripLabel btnCapNhatTT;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripLabel btnXuatPhieu;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripLabel btnXoaPhieu;
         private DataGridViewTextBoxColumn IDPhieuSuaChua;
         private DataGridViewTextBoxColumn NgayTiepNhan;
         private DataGridViewTextBoxColumn TenKhachHang;
@@ -217,11 +262,5 @@
         private DataGridViewTextBoxColumn TenDichVu;
         private DataGridViewTextBoxColumn SoLuongLinhKien;
         private DataGridViewTextBoxColumn GiaTien;
-        private TextBox txtSearch;
-        private Button btnSearch;
-        private Button btnSuaTinhTrang;
-        private Button btnXuatPhieuSuaChua;
-        private Label label1;
-        private Button btnXoaPhieuSuaChua;
     }
 }

@@ -31,12 +31,11 @@ namespace QLDVSC
             menuStrip1 = new MenuStrip();
             hệThốngToolStripMenuItem = new ToolStripMenuItem();
             kháchHàngToolStripMenuItem = new ToolStripMenuItem();
-            thiếtBịToolStripMenuItem = new ToolStripMenuItem();
             đơnHàngToolStripMenuItem = new ToolStripMenuItem();
             hoaDonToolStripMenuItem = new ToolStripMenuItem();
             baoCaoToolStripMenuItem = new ToolStripMenuItem();
-            mainPanel = new Panel();
             tIẾPNHẬNToolStripMenuItem = new ToolStripMenuItem();
+            mainPanel = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -44,73 +43,66 @@ namespace QLDVSC
             // 
             menuStrip1.BackColor = SystemColors.ControlLight;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { hệThốngToolStripMenuItem, kháchHàngToolStripMenuItem, thiếtBịToolStripMenuItem, đơnHàngToolStripMenuItem, hoaDonToolStripMenuItem, baoCaoToolStripMenuItem, tIẾPNHẬNToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { hệThốngToolStripMenuItem, kháchHàngToolStripMenuItem, tIẾPNHẬNToolStripMenuItem, đơnHàngToolStripMenuItem, hoaDonToolStripMenuItem, baoCaoToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1238, 24);
+            menuStrip1.Size = new Size(1238, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // hệThốngToolStripMenuItem
             // 
             hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            hệThốngToolStripMenuItem.Size = new Size(78, 20);
+            hệThốngToolStripMenuItem.Size = new Size(97, 24);
             hệThốngToolStripMenuItem.Text = "HỆ THỐNG";
             hệThốngToolStripMenuItem.Click += hệThốngToolStripMenuItem_Click;
             // 
             // kháchHàngToolStripMenuItem
             // 
             kháchHàngToolStripMenuItem.Name = "kháchHàngToolStripMenuItem";
-            kháchHàngToolStripMenuItem.Size = new Size(97, 20);
+            kháchHàngToolStripMenuItem.Size = new Size(119, 24);
             kháchHàngToolStripMenuItem.Text = "KHÁCH HÀNG";
             kháchHàngToolStripMenuItem.Click += kháchHàngToolStripMenuItem_Click;
-            // 
-            // thiếtBịToolStripMenuItem
-            // 
-            thiếtBịToolStripMenuItem.Name = "thiếtBịToolStripMenuItem";
-            thiếtBịToolStripMenuItem.Size = new Size(62, 20);
-            thiếtBịToolStripMenuItem.Text = "THIẾT BỊ";
-            thiếtBịToolStripMenuItem.Click += thiếtBịToolStripMenuItem_Click;
             // 
             // đơnHàngToolStripMenuItem
             // 
             đơnHàngToolStripMenuItem.Name = "đơnHàngToolStripMenuItem";
-            đơnHàngToolStripMenuItem.Size = new Size(82, 20);
+            đơnHàngToolStripMenuItem.Size = new Size(102, 24);
             đơnHàngToolStripMenuItem.Text = "ĐƠN HÀNG";
             đơnHàngToolStripMenuItem.Click += đơnHàngToolStripMenuItem_Click;
             // 
             // hoaDonToolStripMenuItem
             // 
             hoaDonToolStripMenuItem.Name = "hoaDonToolStripMenuItem";
-            hoaDonToolStripMenuItem.Size = new Size(74, 20);
+            hoaDonToolStripMenuItem.Size = new Size(92, 24);
             hoaDonToolStripMenuItem.Text = "HÓA ĐƠN";
             hoaDonToolStripMenuItem.Click += hoaDonToolStripMenuItem_Click;
             // 
             // baoCaoToolStripMenuItem
             // 
             baoCaoToolStripMenuItem.Name = "baoCaoToolStripMenuItem";
-            baoCaoToolStripMenuItem.Size = new Size(71, 20);
+            baoCaoToolStripMenuItem.Size = new Size(87, 24);
             baoCaoToolStripMenuItem.Text = "BÁO CÁO";
             baoCaoToolStripMenuItem.Click += baoCaoToolStripMenuItem_Click;
-            // 
-            // mainPanel
-            // 
-            mainPanel.Dock = DockStyle.Fill;
-            mainPanel.Location = new Point(0, 24);
-            mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(1238, 488);
-            mainPanel.TabIndex = 4;
             // 
             // tIẾPNHẬNToolStripMenuItem
             // 
             tIẾPNHẬNToolStripMenuItem.Name = "tIẾPNHẬNToolStripMenuItem";
-            tIẾPNHẬNToolStripMenuItem.Size = new Size(79, 20);
-            tIẾPNHẬNToolStripMenuItem.Text = "TIẾP NHẬN";
+            tIẾPNHẬNToolStripMenuItem.Size = new Size(158, 24);
+            tIẾPNHẬNToolStripMenuItem.Text = "TIẾP NHẬN THIẾT BỊ";
             tIẾPNHẬNToolStripMenuItem.Click += tIẾPNHẬNToolStripMenuItem_Click;
+            // 
+            // mainPanel
+            // 
+            mainPanel.Dock = DockStyle.Fill;
+            mainPanel.Location = new Point(0, 28);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(1238, 484);
+            mainPanel.TabIndex = 4;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1238, 512);
             Controls.Add(mainPanel);
@@ -132,7 +124,6 @@ namespace QLDVSC
         private MenuStrip menuStrip1;
         private ToolStripMenuItem hệThốngToolStripMenuItem;
         private ToolStripMenuItem kháchHàngToolStripMenuItem;
-        private ToolStripMenuItem thiếtBịToolStripMenuItem;
         private ToolStripMenuItem đơnHàngToolStripMenuItem;
         private ToolStripMenuItem hoaDonToolStripMenuItem;
         private ToolStripMenuItem baoCaoToolStripMenuItem;

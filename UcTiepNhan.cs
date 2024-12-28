@@ -24,12 +24,12 @@ namespace QLDVSC
             InitializeComponent();
         }
 
-        private void btnTaoPhieuTiepNhan_Click(object sender, EventArgs e)
+        private void UcTiepNhan_Load(object sender, EventArgs e)
         {
-
+            LoadData();
         }
 
-        private void btnLoadData_Click(object sender, EventArgs e)
+        private void LoadData()
         {
             string connectionString = "server=localhost;user id=root;password=123456789;database=QuanLySuaChua1;";
             string query = @"SELECT 
@@ -64,7 +64,73 @@ namespace QLDVSC
             }
         }
 
-        private void btnSearchPhieuTiepNhan_Click(object sender, EventArgs e)
+
+
+        // Hàm hiển thị Form tùy chỉnh
+        private string ShowInputDialog(string prompt, string title)
+        {
+            Form inputForm = new Form
+            {
+                Width = 400,
+                Height = 200,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = title,
+                StartPosition = FormStartPosition.CenterScreen
+            };
+
+            Label lblPrompt = new Label { Left = 10, Top = 20, Text = prompt, Width = 370 };
+            TextBox txtInput = new TextBox { Left = 10, Top = 50, Width = 360 };
+            Button btnOk = new Button { Text = "OK", Left = 220, Width = 75, Top = 100, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "Cancel", Left = 300, Width = 75, Top = 100, DialogResult = DialogResult.Cancel };
+
+            inputForm.Controls.Add(lblPrompt);
+            inputForm.Controls.Add(txtInput);
+            inputForm.Controls.Add(btnOk);
+            inputForm.Controls.Add(btnCancel);
+
+            inputForm.AcceptButton = btnOk;
+            inputForm.CancelButton = btnCancel;
+
+            if (inputForm.ShowDialog() == DialogResult.OK)
+            {
+                return txtInput.Text;
+            }
+            return null;
+        }
+
+        // Hàm hiển thị Form tùy chỉnh
+        private string ShowCustomInputDialog(string prompt, string title)
+        {
+            Form inputForm = new Form
+            {
+                Width = 400,
+                Height = 200,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = title,
+                StartPosition = FormStartPosition.CenterScreen
+            };
+
+            Label lblPrompt = new Label { Left = 10, Top = 20, Text = prompt, Width = 370 };
+            TextBox txtInput = new TextBox { Left = 10, Top = 50, Width = 360 };
+            Button btnOk = new Button { Text = "OK", Left = 220, Width = 75, Top = 100, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button { Text = "Cancel", Left = 300, Width = 75, Top = 100, DialogResult = DialogResult.Cancel };
+
+            inputForm.Controls.Add(lblPrompt);
+            inputForm.Controls.Add(txtInput);
+            inputForm.Controls.Add(btnOk);
+            inputForm.Controls.Add(btnCancel);
+
+            inputForm.AcceptButton = btnOk;
+            inputForm.CancelButton = btnCancel;
+
+            if (inputForm.ShowDialog() == DialogResult.OK)
+            {
+                return txtInput.Text;
+            }
+            return null;
+        }
+
+        private void btnSearchPhieuSuaChua_Click(object sender, EventArgs e)
         {
             string connectionString = "server=localhost;user id=root;password=123456789;database=QuanLySuaChua1;";
             string searchID = txtSearchPhieuTiepNhan.Text.Trim();
@@ -77,17 +143,17 @@ namespace QLDVSC
             }
 
             string query = @"SELECT 
-                        ptn.ID_phieu_tiep_nhan AS 'ID Phiếu Tiếp Nhận',
-                        ptn.Ngay_tiep_nhan AS 'Ngày Tiếp Nhận',
-                        kh.Ho_ten AS 'Khách Hàng',
-                        tb.Hang AS 'Hãng Thiết Bị',
-                        tb.Model AS 'Model Thiết Bị',
-                        nv.Ho_ten AS 'Nhân Viên Tiếp Nhận'
-                    FROM PhieuTiepNhanThietBi ptn
-                    INNER JOIN KhachHang kh ON ptn.ID_khach_hang = kh.ID_khach_hang
-                    INNER JOIN ThietBi tb ON ptn.ID_thiet_bi = tb.ID_thiet_bi
-                    INNER JOIN NhanVien nv ON ptn.ID_nhan_vien = nv.ID_nhan_vien
-                    WHERE ptn.ID_phieu_tiep_nhan = @SearchID";
+                ptn.ID_phieu_tiep_nhan AS 'ID Phiếu Tiếp Nhận',
+                ptn.Ngay_tiep_nhan AS 'Ngày Tiếp Nhận',
+                kh.Ho_ten AS 'Khách Hàng',
+                tb.Hang AS 'Hãng Thiết Bị',
+                tb.Model AS 'Model Thiết Bị',
+                nv.Ho_ten AS 'Nhân Viên Tiếp Nhận'
+            FROM PhieuTiepNhanThietBi ptn
+            INNER JOIN KhachHang kh ON ptn.ID_khach_hang = kh.ID_khach_hang
+            INNER JOIN ThietBi tb ON ptn.ID_thiet_bi = tb.ID_thiet_bi
+            INNER JOIN NhanVien nv ON ptn.ID_nhan_vien = nv.ID_nhan_vien
+            WHERE ptn.ID_phieu_tiep_nhan = @SearchID";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -119,12 +185,8 @@ namespace QLDVSC
 
         private void btnXuatPhieuTiepNhan_Click(object sender, EventArgs e)
         {
-            // Hiển thị dialog để nhập ID
-            string inputID = Microsoft.VisualBasic.Interaction.InputBox(
-                "Nhập ID Phiếu Tiếp Nhận cần xuất:",
-                "Xuất Phiếu Tiếp Nhận",
-                "",
-                -1, -1);
+            // Tạo Form tùy chỉnh để nhập ID
+            string inputID = ShowInputDialog("Nhập ID Phiếu Tiếp Nhận cần xuất:", "Xuất Phiếu Tiếp Nhận");
 
             // Kiểm tra ID hợp lệ
             if (string.IsNullOrEmpty(inputID) || !int.TryParse(inputID, out int idPhieuTiepNhan))
@@ -136,18 +198,18 @@ namespace QLDVSC
             // Kết nối MySQL và lấy dữ liệu
             string connectionString = "server=localhost;user id=root;password=123456789;database=QuanLySuaChua1;";
             string query = @"SELECT 
-                    ptn.ID_phieu_tiep_nhan AS 'ID Phiếu',
-                    ptn.Ngay_tiep_nhan AS 'Ngày Tiếp Nhận',
-                    kh.Ho_ten AS 'Khách Hàng',
-                    kh.So_dien_thoai AS 'Số Điện Thoại',
-                    tb.Hang AS 'Hãng Thiết Bị',
-                    tb.Model AS 'Model Thiết Bị',
-                    nv.Ho_ten AS 'Nhân Viên Tiếp Nhận'
-                FROM PhieuTiepNhanThietBi ptn
-                INNER JOIN KhachHang kh ON ptn.ID_khach_hang = kh.ID_khach_hang
-                INNER JOIN ThietBi tb ON ptn.ID_thiet_bi = tb.ID_thiet_bi
-                INNER JOIN NhanVien nv ON ptn.ID_nhan_vien = nv.ID_nhan_vien
-                WHERE ptn.ID_phieu_tiep_nhan = @IDPhieuTiepNhan";
+    ptn.ID_phieu_tiep_nhan AS 'ID Phiếu',
+    ptn.Ngay_tiep_nhan AS 'Ngày Tiếp Nhận',
+    kh.Ho_ten AS 'Khách Hàng',
+    kh.So_dien_thoai AS 'Số Điện Thoại',
+    tb.Hang AS 'Hãng Thiết Bị',
+    tb.Model AS 'Model Thiết Bị',
+    nv.Ho_ten AS 'Nhân Viên Tiếp Nhận'
+FROM PhieuTiepNhanThietBi ptn
+INNER JOIN KhachHang kh ON ptn.ID_khach_hang = kh.ID_khach_hang
+INNER JOIN ThietBi tb ON ptn.ID_thiet_bi = tb.ID_thiet_bi
+INNER JOIN NhanVien nv ON ptn.ID_nhan_vien = nv.ID_nhan_vien
+WHERE ptn.ID_phieu_tiep_nhan = @IDPhieuTiepNhan";
 
             DataTable dataTable = new DataTable();
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -177,16 +239,13 @@ namespace QLDVSC
             string outputPath = $"PhieuTiepNhan_{idPhieuTiepNhan}.txt";
             try
             {
-                // Mở file để ghi
                 using (StreamWriter writer = new StreamWriter(outputPath))
                 {
-                    // Viết Tiêu đề
                     writer.WriteLine("=========================================");
                     writer.WriteLine("              PHIẾU TIẾP NHẬN");
                     writer.WriteLine("=========================================");
                     writer.WriteLine();
 
-                    // Dữ liệu từ DataTable
                     DataRow row = dataTable.Rows[0];
                     writer.WriteLine($"ID Phiếu: {row["ID Phiếu"]}");
                     writer.WriteLine($"Ngày Tiếp Nhận: {row["Ngày Tiếp Nhận"]}");
@@ -200,32 +259,21 @@ namespace QLDVSC
                 }
 
                 MessageBox.Show($"Xuất TXT thành công! File đã lưu tại: {outputPath}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Mở file TXT bằng Notepad hoặc ứng dụng mặc định
-                System.Diagnostics.Process.Start("notepad.exe", outputPath);  // Mở với Notepad
+                System.Diagnostics.Process.Start("notepad.exe", outputPath);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi xuất TXT: " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Debug.WriteLine(ex.StackTrace); // Ghi log chi tiết lỗi ra console            
             }
-        }
-
-        private void txtSearchPhieuTiepNhan_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
         private void btnXoaPhieuTiepNhan_Click(object sender, EventArgs e)
         {
-            string input = Microsoft.VisualBasic.Interaction.InputBox(
-                "Nhập ID Phiếu Tiếp Nhận cần xóa:",
-                "Xóa Phiếu Tiếp Nhận",
-                "",
-                -1,
-                -1);
-            string connectionString = "server=localhost;user id=root;password=123456789;database=QuanLySuaChua1;";
+            // Tạo Form tùy chỉnh để nhập ID
+            string input = ShowCustomInputDialog("Nhập ID Phiếu Tiếp Nhận cần xóa:", "Xóa Phiếu Tiếp Nhận");
 
+            string connectionString = "server=localhost;user id=root;password=123456789;database=QuanLySuaChua1;";
 
             if (!string.IsNullOrWhiteSpace(input) && int.TryParse(input, out int idPhieuTiepNhan))
             {
@@ -237,11 +285,11 @@ namespace QLDVSC
 
                     // Xóa dữ liệu trong bảng HoaDon
                     string deleteHoaDon = @"
-                DELETE FROM HoaDon
-                WHERE ID_phieu_sua_chua IN (
-                    SELECT ID_phieu_sua_chua 
-                    FROM PhieuSuaChua 
-                    WHERE ID_phieu_tiep_nhan = @IDPhieuTiepNhan)";
+DELETE FROM HoaDon
+WHERE ID_phieu_sua_chua IN (
+    SELECT ID_phieu_sua_chua 
+    FROM PhieuSuaChua 
+    WHERE ID_phieu_tiep_nhan = @IDPhieuTiepNhan)";
                     using (MySqlCommand cmd = new MySqlCommand(deleteHoaDon, connection))
                     {
                         cmd.Parameters.AddWithValue("@IDPhieuTiepNhan", idPhieuTiepNhan);
@@ -250,11 +298,11 @@ namespace QLDVSC
 
                     // Xóa dữ liệu trong bảng PhieuSuaChua_ThongTinLoi
                     string deletePhieuSuaChuaThongTinLoi = @"
-                DELETE FROM PhieuSuaChua_ThongTinLoi
-                WHERE ID_phieu_sua_chua IN (
-                    SELECT ID_phieu_sua_chua 
-                    FROM PhieuSuaChua 
-                    WHERE ID_phieu_tiep_nhan = @IDPhieuTiepNhan)";
+DELETE FROM PhieuSuaChua_ThongTinLoi
+WHERE ID_phieu_sua_chua IN (
+    SELECT ID_phieu_sua_chua 
+    FROM PhieuSuaChua 
+    WHERE ID_phieu_tiep_nhan = @IDPhieuTiepNhan)";
                     using (MySqlCommand cmd = new MySqlCommand(deletePhieuSuaChuaThongTinLoi, connection))
                     {
                         cmd.Parameters.AddWithValue("@IDPhieuTiepNhan", idPhieuTiepNhan);
@@ -263,11 +311,11 @@ namespace QLDVSC
 
                     // Xóa dữ liệu trong bảng ChiTietSuaChua
                     string deleteChiTietSuaChua = @"
-                DELETE FROM ChiTietSuaChua
-                WHERE ID_phieu_sua_chua IN (
-                    SELECT ID_phieu_sua_chua 
-                    FROM PhieuSuaChua 
-                    WHERE ID_phieu_tiep_nhan = @IDPhieuTiepNhan)";
+DELETE FROM ChiTietSuaChua
+WHERE ID_phieu_sua_chua IN (
+    SELECT ID_phieu_sua_chua 
+    FROM PhieuSuaChua 
+    WHERE ID_phieu_tiep_nhan = @IDPhieuTiepNhan)";
                     using (MySqlCommand cmd = new MySqlCommand(deleteChiTietSuaChua, connection))
                     {
                         cmd.Parameters.AddWithValue("@IDPhieuTiepNhan", idPhieuTiepNhan);
@@ -276,8 +324,8 @@ namespace QLDVSC
 
                     // Xóa dữ liệu trong bảng PhieuSuaChua
                     string deletePhieuSuaChua = @"
-                DELETE FROM PhieuSuaChua 
-                WHERE ID_phieu_tiep_nhan = @IDPhieuTiepNhan";
+DELETE FROM PhieuSuaChua 
+WHERE ID_phieu_tiep_nhan = @IDPhieuTiepNhan";
                     using (MySqlCommand cmd = new MySqlCommand(deletePhieuSuaChua, connection))
                     {
                         cmd.Parameters.AddWithValue("@IDPhieuTiepNhan", idPhieuTiepNhan);
@@ -286,8 +334,8 @@ namespace QLDVSC
 
                     // Xóa dữ liệu trong bảng PhieuTiepNhanThietBi
                     string deletePhieuTiepNhan = @"
-                DELETE FROM PhieuTiepNhanThietBi 
-                WHERE ID_phieu_tiep_nhan = @IDPhieuTiepNhan";
+DELETE FROM PhieuTiepNhanThietBi 
+WHERE ID_phieu_tiep_nhan = @IDPhieuTiepNhan";
                     using (MySqlCommand cmd = new MySqlCommand(deletePhieuTiepNhan, connection))
                     {
                         cmd.Parameters.AddWithValue("@IDPhieuTiepNhan", idPhieuTiepNhan);
@@ -309,43 +357,7 @@ namespace QLDVSC
             {
                 MessageBox.Show("ID không hợp lệ hoặc bạn đã hủy thao tác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
 
-        private void btnTaoPhieuTiepNhan_Click_1(object sender, EventArgs e)
-        {
-            // Mở form tiếp nhận
-            FormTiepNhan formTiepNhan = new FormTiepNhan();
-            string connectionString = "server=localhost;user id=root;password=123456789;database=QuanLySuaChua1;";
-
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    conn.Open();
-
-                    // Truy vấn lấy ngẫu nhiên 1 nhân viên
-                    string query = "SELECT Ho_ten FROM NhanVien ORDER BY RAND() LIMIT 1";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                    // Thực thi truy vấn và lấy tên nhân viên
-                    object result = cmd.ExecuteScalar();
-
-                    // Gán tên nhân viên vào lbNhanVienSuaChua trong FormTiepNhan
-                    if (result != null)
-                    {
-                        // Truyền tên nhân viên vào FormTiepNhan
-                        formTiepNhan.SetNhanVienSuaChua(result.ToString());
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi kết nối cơ sở dữ liệu: " + ex.Message);
-                }
-            }
-
-            // Mở form tiếp nhận
-            formTiepNhan.Show();
         }
     }
 }
