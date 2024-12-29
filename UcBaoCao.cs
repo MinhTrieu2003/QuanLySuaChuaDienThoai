@@ -101,10 +101,10 @@ namespace QLDVSC
         {
             string query = @"
                 SELECT 
-                    CONCAT('Quý ', QUARTER(Ngay_lap), ' ', YEAR(Ngay_lap)) AS QuarterYear,
+                    CONCAT('Quarter ', QUARTER(Ngay_lap), ' ', YEAR(Ngay_lap)) AS QuarterYear,
                     SUM(Tong_tien) AS TotalRevenue
                 FROM hoadon
-                GROUP BY YEAR(Ngay_lap), QUARTER(Ngay_lap)
+                GROUP BY YEAR(Ngay_lap), QUARTER(Ngay_lap), CONCAT('Quarter ', QUARTER(Ngay_lap), ' ', YEAR(Ngay_lap))
                 ORDER BY YEAR(Ngay_lap), QUARTER(Ngay_lap);
             ";
 
