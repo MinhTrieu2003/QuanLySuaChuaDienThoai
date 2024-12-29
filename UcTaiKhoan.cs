@@ -60,7 +60,7 @@ namespace QLDVSC
 
         private void UcTaiKhoan_Load(object sender, EventArgs e)
         {
-            string username = FormDangNhap.TenTaiKhoan; // Lấy tên đăng nhập từ biến toàn cục
+            string username = FormDangNhap.LoggedInUser.TenTaiKhoan; // Lấy tên đăng nhập từ biến toàn cục
 
             // Truy vấn cơ sở dữ liệu để lấy thông tin tài khoản dựa trên tên đăng nhập
             

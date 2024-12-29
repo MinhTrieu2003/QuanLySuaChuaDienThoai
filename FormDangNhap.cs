@@ -9,7 +9,10 @@ namespace QLDVSC
             InitializeComponent();
         }
 
-        public static string TenTaiKhoan; 
+        public static class LoggedInUser
+        {
+            public static string TenTaiKhoan { get; set; }
+        }
         private string AuthenticateUser(string username, string password)
         {
             string connectionString = "server=localhost;database=QuanLySuaChua1;uid=root;pwd=123456789;";
@@ -74,7 +77,7 @@ namespace QLDVSC
                     Properties.Settings.Default.IsRememberMeChecked = false;
                     Properties.Settings.Default.Save();
                 }
-                TenTaiKhoan = username;
+                LoggedInUser.TenTaiKhoan = username;
                 // Mở form tương ứng với vai trò
                 if (role == "Quản trị")
                 {
